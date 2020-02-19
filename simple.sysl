@@ -1,0 +1,32 @@
+simple[package="simple"]:
+    @basePath = "simple"
+
+    !type Stuff:
+        Content <: string:
+            @json_tag = "Content"  
+
+    /foobar:
+        GET:
+            mydependency <- GET /todos/{id}
+            return str
+    !alias str:
+        string
+
+mydependency[package="mydependency"]:
+    @version = "1.0"
+    !type todosResponse:
+        userId <: int:
+            @json_tag = "userId"
+        id <: int:
+            @json_tag = "id"
+        title <: string:
+            @json_tag = "title"
+        completed <: bool:
+            @json_tag = "completed"
+    /todos/{id<:int}:
+        GET[mediatype="application/json", ~body]:
+            return ok <:  todosResponse
+
+
+
+    
