@@ -27,7 +27,16 @@ When new endpoints are added, they need to be added to the `simple.ServiceInterf
 main.go: runs the actual server
 
 
-run `make input=<inputfile> app=<appname>` to regenerate application code
+run `make` to regenerate application code
+First you need to edit the start of the Makefile:
+
+```
+input = your input
+app = < the app you want to develop>
+down = <downstreams in a list separated by spaces>
+basepath = <Your current basepath to the generated documentation>
+```
+
 so: `make input=model/simple.sysl app=Simple` for this example
 
 run `go run main.go` to start the server
