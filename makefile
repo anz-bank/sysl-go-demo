@@ -7,6 +7,12 @@ out = gen
 # Current go import path
 basepath = github.service.anz/sysl/sysltemplate
 
+
+docker:
+	GOOS=linux GOARCH=amd64 go build main.go
+	docker build -t joshcarp/sysltemplate .
+	docker run -p 8080:8080 joshcarp/sysltemplate
+
 ####################################################################
 #                                                                  #
 #                                                                  #
