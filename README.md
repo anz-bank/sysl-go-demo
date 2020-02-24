@@ -7,6 +7,11 @@
 - run   `go run main.go`
 - congrats! you've just made your first sysl!
 
+
+## Docker 
+run `make docker` to build and run a docker container image of main.go
+
+
 ## Development
 - Refer to the make file to generate client and server code for all of your applications
 
