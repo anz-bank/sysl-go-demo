@@ -35,7 +35,7 @@ type ServiceRouter struct {
 
 // NewServiceRouter creates a new service router for simple
 func NewServiceRouter(gc GenCallback, svcHandler *ServiceHandler) handlerinitialiser.HandlerInitialiser {
-	return &ServiceRouter{gc, svcHandler, "simple"}
+	return &ServiceRouter{gc, svcHandler, ""}
 }
 
 // WireRoutes ...

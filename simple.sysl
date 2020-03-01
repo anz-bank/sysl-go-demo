@@ -1,6 +1,4 @@
-simple[package="simple"]:
-    @basePath = "simple"
-
+simple:
     !type Stuff:
         Content <: string:
             @json_tag = "Content"  
@@ -12,7 +10,8 @@ simple[package="simple"]:
     !alias str:
         string
 
-mydependency[package="mydependency"]:
+mydependency:
+    @package = "mydependency"
     @version = "1.0"
     !type todosResponse:
         userId <: int:
