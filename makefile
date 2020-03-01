@@ -2,7 +2,7 @@ all: sysl
 
 input = simple.sysl
 app = simple
-down = mydependency # this can be a list separated by a space or left empty
+down = jsonplaceholder # this can be a list separated by a space or left empty
 out = gen
 # Current go import path
 basepath = github.service.anz/sysl/sysltemplate

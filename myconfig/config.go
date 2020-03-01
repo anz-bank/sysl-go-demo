@@ -2,19 +2,20 @@ package myconfig
 
 import (
 	"context"
-	"github.com/go-chi/chi"
 	"github.service.anz/sysl/server-lib/common"
-	"github.service.anz/sysl/server-lib/validator"
 	"net/http"
 	"time"
+
+	"github.com/go-chi/chi"
+	"github.service.anz/sysl/server-lib/validator"
 )
 
-func DefaultCallback()Callback{
+func DefaultCallback() Callback {
 	return Callback{
 		UpstreamTimeout:   120 * time.Second,
 		DownstreamTimeout: 120 * time.Second,
 		RouterBasePath:    "/",
-		UpstreamConfig:    nil,
+		UpstreamConfig:    Config{},
 	}
 }
 
@@ -35,11 +36,11 @@ func (g Callback) AddMiddleware(ctx context.Context, r chi.Router) {
 }
 
 func (g Callback) BasePath() string {
-	return "/"
+	return g.RouterBasePath
 }
 
 func (g Callback) Config() validator.Validator {
-	return Config{}
+	return g.UpstreamConfig
 }
 
 func (g Callback) HandleError(ctx context.Context, w http.ResponseWriter, kind common.Kind, message string, cause error) {
@@ -51,6 +52,5 @@ func (g Callback) HandleError(ctx context.Context, w http.ResponseWriter, kind c
 }
 
 func (g Callback) DownstreamTimeoutContext(ctx context.Context) (context.Context, context.CancelFunc) {
-	return context.WithTimeout(ctx, 120*time.Second)
+	return context.WithTimeout(ctx, g.DownstreamTimeout)
 }
-

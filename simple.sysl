@@ -1,18 +1,15 @@
 simple:
-    !type Stuff:
-        Content <: string:
-            @json_tag = "Content"  
-
+    @package="simple"
     /foobar:
         GET:
-            mydependency <- GET /todos/{id}
-            return str
-    !alias str:
-        string
+            jsonplaceholder <- GET /todos/{id}
+            return ok <: jsonplaceholder.todosResponse
 
-mydependency:
-    @package = "mydependency"
-    @version = "1.0"
+jsonplaceholder:
+    @package="jsonplaceholder"
+    /todos/{id<:int}:
+        GET[~body]:
+            return ok <:  todosResponse
     !type todosResponse:
         userId <: int:
             @json_tag = "userId"
@@ -22,9 +19,6 @@ mydependency:
             @json_tag = "title"
         completed <: bool:
             @json_tag = "completed"
-    /todos/{id<:int}:
-        GET[mediatype="application/json", ~body]:
-            return ok <:  todosResponse
 
 
 

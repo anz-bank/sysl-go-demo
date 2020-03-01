@@ -4,7 +4,7 @@ package simple
 import (
 	"context"
 
-	"github.service.anz/sysl/sysltemplate/gen/mydependency"
+	"github.service.anz/sysl/sysltemplate/gen/jsonplaceholder"
 )
 
 // DefaultSimpleImpl  ...
@@ -18,10 +18,10 @@ func NewDefaultSimpleImpl() *DefaultSimpleImpl {
 
 // GetFoobarList Client
 type GetFoobarListClient struct {
-	GetTodos func(ctx context.Context, req *mydependency.GetTodosRequest) (*mydependency.TodosResponse, error)
+	GetTodos func(ctx context.Context, req *jsonplaceholder.GetTodosRequest) (*jsonplaceholder.TodosResponse, error)
 }
 
 // ServiceInterface for simple
 type ServiceInterface struct {
-	GetFoobarList func(ctx context.Context, req *GetFoobarListRequest, client GetFoobarListClient) (*Str, error)
+	GetFoobarList func(ctx context.Context, req *GetFoobarListRequest, client GetFoobarListClient) (*jsonplaceholder.TodosResponse, error)
 }

@@ -7,7 +7,7 @@ import (
 	"github.service.anz/sysl/server-lib/common"
 	"github.service.anz/sysl/server-lib/restlib"
 	"github.service.anz/sysl/server-lib/validator"
-	"github.service.anz/sysl/sysltemplate/gen/mydependency"
+	"github.service.anz/sysl/sysltemplate/gen/jsonplaceholder"
 )
 
 // Handler interface for simple
@@ -17,14 +17,14 @@ type Handler interface {
 
 // ServiceHandler for simple API
 type ServiceHandler struct {
-	genCallback                     GenCallback
-	serviceInterface                *ServiceInterface
-	mydependencymydependencyService mydependency.Service
+	genCallback                           GenCallback
+	serviceInterface                      *ServiceInterface
+	jsonplaceholderjsonplaceholderService jsonplaceholder.Service
 }
 
 // NewServiceHandler for simple
-func NewServiceHandler(genCallback GenCallback, serviceInterface *ServiceInterface, mydependencymydependencyService mydependency.Service) *ServiceHandler {
-	return &ServiceHandler{genCallback, serviceInterface, mydependencymydependencyService}
+func NewServiceHandler(genCallback GenCallback, serviceInterface *ServiceInterface, jsonplaceholderjsonplaceholderService jsonplaceholder.Service) *ServiceHandler {
+	return &ServiceHandler{genCallback, serviceInterface, jsonplaceholderjsonplaceholderService}
 }
 
 // GetFoobarListHandler ...
@@ -41,7 +41,7 @@ func (s *ServiceHandler) GetFoobarListHandler(w http.ResponseWriter, r *http.Req
 	ctx, cancel := s.genCallback.DownstreamTimeoutContext(ctx)
 	defer cancel()
 	client := GetFoobarListClient{
-		GetTodos: s.mydependencymydependencyService.GetTodos,
+		GetTodos: s.jsonplaceholderjsonplaceholderService.GetTodos,
 	}
 
 	valErr := validator.Validate(&req)
@@ -50,7 +50,7 @@ func (s *ServiceHandler) GetFoobarListHandler(w http.ResponseWriter, r *http.Req
 		return
 	}
 
-	str, err := s.serviceInterface.GetFoobarList(ctx, &req, client)
+	todosresponse, err := s.serviceInterface.GetFoobarList(ctx, &req, client)
 	if err != nil {
 		s.genCallback.HandleError(ctx, w, common.DownstreamUnexpectedResponseError, "Downstream failure", err)
 		return
@@ -58,5 +58,5 @@ func (s *ServiceHandler) GetFoobarListHandler(w http.ResponseWriter, r *http.Req
 
 	headermap, httpstatus := common.RespHeaderAndStatusFromContext(ctx)
 	restlib.SetHeaders(w, headermap)
-	restlib.SendHTTPResponse(w, httpstatus, str, err)
+	restlib.SendHTTPResponse(w, httpstatus, todosresponse, err)
 }
