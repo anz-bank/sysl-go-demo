@@ -9,7 +9,7 @@ import (
 	"github.com/go-chi/chi"
 	"github.service.anz/sysl/sysltemplate/gen/jsonplaceholder"
 	"github.service.anz/sysl/sysltemplate/gen/simple"
-	"github.service.anz/sysl/sysltemplate/myconfig"
+	"github.com/joshcarp/defaultcallback"
 	"log"
 	"net/http"
 )
@@ -24,7 +24,7 @@ func LoadServices(ctx context.Context) error {
 	}
 
 	// Default callback behaviour
-	genCallbacks := myconfig.DefaultCallback()
+	genCallbacks := defaultcallback.DefaultCallback()
 
 	serviceHandler := simple.NewServiceHandler(genCallbacks,
 												&simpleServiceInterface,

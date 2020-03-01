@@ -1,17 +1,11 @@
-all: sysl
+
 
 input = simple.sysl
 app = simple
-down = jsonplaceholder # this can be a list separated by a space or left empty
+dependencies = jsonplaceholder # this can be a list separated by a space or left empty
 out = gen
 # Current go import path
 basepath = github.service.anz/sysl/sysltemplate
-
-
-docker:
-	GOOS=linux GOARCH=amd64 go build main.go
-	docker build -t joshcarp/sysltemplate .
-	docker run -p 8080:8080 joshcarp/sysltemplate
 
 ####################################################################
 #                                                                  #
@@ -22,6 +16,13 @@ docker:
 #                                                                  #
 #                                                                  #
 ####################################################################
+docker:
+	GOOS=linux GOARCH=amd64 go build main.go
+	docker build -t joshcarp/sysltemplate .
+	docker run -p 8080:8080 joshcarp/sysltemplate
+
+all: sysl
+
 
 TMP = .tmp# Cache the server lib directory in tmp
 SERVERLIB = /var/tmp
@@ -42,24 +43,24 @@ setup:
 	git clone https://github.service.anz/sysl/server-lib/ $(SERVERLIB)/server-lib || true  # Don't fail
 	cd  $(SERVERLIB)/server-lib && git fetch && git checkout tags/v0.1.9 || true
 	mkdir -p $(TMP)/server-lib/
-	mkdir -p ${out}/${app}
+	mkdir -p ${outdir}/${app}
 	# Copying server-lib to $(TMP)
 	cp -rf $(SERVERLIB)/server-lib $(TMP)/
-	$(foreach path, $(down), $(shell mkdir -p ${out}/$(path)))
-    $(foreach path, $(app), $(shell mkdir -p ${out}/$(path)))
+	$(foreach path, $(dependencies), $(shell mkdir -p ${outdir}/$(path)))
+    $(foreach path, $(app), $(shell mkdir -p ${outdir}/$(path)))
 
 # Generate files with internal git service
 gen:
-	$(foreach file, $(TRANSFORMS), $(shell sysl codegen --basepath=$(basepath)/${out}/ --transform $(TRANSLOCATION)/$(file) --grammar ${GRAMMAR} --start ${START} --outdir=${out}/${app} --app-name ${app} $(input)))
+	$(foreach file, $(TRANSFORMS), $(shell sysl codegen --basepath=$(basepath)/${outdir}/ --transform $(TRANSLOCATION)/$(file) --grammar ${GRAMMAR} --start ${START} --outdir=${outdir}/${app} --app-name ${app} $(input)))
 
 downstream:
-	$(foreach file, $(DOWNSTREAMTRANSFORMS), $(foreach downstream, $(down), $(shell sysl codegen --basepath=$(basepath)/${out}/ --transform $(TRANSLOCATION)/$(file) --grammar ${GRAMMAR} --start ${START} --outdir=${out}/${downstream} --app-name ${downstream} $(input))))
+	$(foreach file, $(DOWNSTREAMTRANSFORMS), $(foreach downstream, $(dependencies), $(shell sysl codegen --basepath=$(basepath)/${outdir}/ --transform $(TRANSLOCATION)/$(file) --grammar ${GRAMMAR} --start ${START} --outdir=${outdir}/${downstream} --app-name ${downstream} $(input))))
 
 format:
-	gofmt -s -w ${out}/${app}/*
-	goimports -w ${out}/${app}/*
-	$(foreach path, $(down), $(shell gofmt -s -w ${out}/${path}/*))
-	$(foreach path, $(down), $(shell goimports -w ${out}/${path}/*))
+	gofmt -s -w ${outdir}/${app}/*
+	goimports -w ${outdir}/${app}/*
+	$(foreach path, $(dependencies), $(shell gofmt -s -w ${outdir}/${path}/*))
+	$(foreach path, $(dependencies), $(shell goimports -w ${outdir}/${path}/*))
 
 
 # Remove the tmp directory after
@@ -68,4 +69,4 @@ tmp:
 
 # Remove the generated files
 clean:
-	rm -rf $(out)
+	rm -rf $(outdir)
