@@ -7,5 +7,5 @@ require (
 	github.com/joshcarp/defaultcallback v0.0.0-20200301233018-0111949a96b3
 	github.com/rickb777/date v1.12.4
 	github.service.anz/sysl/server-lib v0.1.14
-	gopkg.in/go-playground/validator.v9 v9.31.0
+	gopkg.in/go-playground/validator.v9 v9.29.1
 )

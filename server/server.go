@@ -29,7 +29,8 @@ func LoadServices(ctx context.Context) error {
 	// Default callback behaviour
 	genCallbacks := defaultcallback.DefaultCallback()
 
-	serviceHandler := simple.NewServiceHandler(genCallbacks,
+	serviceHandler := simple.NewServiceHandler(
+		genCallbacks,
 		&simpleServiceInterface,
 		jsonplaceholder.NewClient(http.DefaultClient, "http://jsonplaceholder.typicode.com"))
 
