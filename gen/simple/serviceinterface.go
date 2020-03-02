@@ -4,7 +4,7 @@ package simple
 import (
 	"context"
 
-	"github.service.anz/sysl/sysltemplate/gen/jsonplaceholder"
+	"github.com/anz-bank/sysltemplate/gen/jsonplaceholder"
 )
 
 // DefaultSimpleImpl  ...

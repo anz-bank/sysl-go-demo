@@ -10,6 +10,7 @@ github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/envoyproxy/go-control-plane v0.9.0/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
 github.com/go-chi/chi v4.0.3+incompatible/go.mod h1:eB3wogJHnLi3x/kFX2A+IbTBlXxmMeXJVKy9tTv1XzQ=
+github.com/go-chi/cors v1.0.0/go.mod h1:K2Yje0VW/SJzxiyMYu6iPQYa7hMjQX2i/F491VChg1I=
 github.com/go-playground/locales v0.12.1/go.mod h1:IUMDtCfWo/w/mtMfIE/IG2K+Ey3ygWanZIBtBW0W2TM=
 github.com/go-playground/universal-translator v0.16.0 h1:X++omBR/4cE2MNg91AoC3rmGrCjJ8eAeUP/K/EKx4DM=
 github.com/go-playground/universal-translator v0.16.0/go.mod h1:1AnU7NaIRDWWzGEKwgtJRd2xk99HeFyHw3yid4rvQIY=
@@ -23,6 +24,7 @@ github.com/golang/protobuf v1.3.3/go.mod h1:vzj43D7+SQXF/4pzW/hwtAqwc6iTitCiVSaW
 github.com/google/go-cmp v0.2.0/go.mod h1:oXzfMopK8JAjlY9xF4vHSVASa0yLyX7SntLO5aqRK0M=
 github.com/google/uuid v1.1.1 h1:Gkbcsh/GbpXz7lPftLA3P6TYMwjCLYm83jiFQZF/3gY=
 github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/gorilla/websocket v1.4.1/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
 github.com/joshcarp/defaultcallback v0.0.0-20200301233018-0111949a96b3 h1:NHCPJGOwcRnTBHpeCVQtg5NycwIU0CYLS3k/eD9LDsQ=
 github.com/joshcarp/defaultcallback v0.0.0-20200301233018-0111949a96b3/go.mod h1:Cc0X+cTMdE0M3ANpOzukZvvCldBzswOKik29meyIXqc=
 github.com/konsorten/go-windows-terminal-sequences v1.0.1/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
@@ -68,6 +70,10 @@ github.service.anz/dcx/go_pkcs12 v0.0.0-20190614054651-9c5bd82e1040 h1:gZ+JfronO
 github.service.anz/dcx/go_pkcs12 v0.0.0-20190614054651-9c5bd82e1040/go.mod h1:OF6VwsAXhhye9vTYe/+cWe3W3vEZcJ/U6eRvtIn/BAU=
 github.service.anz/sysl/server-lib v0.1.9 h1:+mji4VsLGxl4zPAaPCQ8MastoKN0s62+bpYAdXOFol8=
 github.service.anz/sysl/server-lib v0.1.9/go.mod h1:wuY1LHV7muZgz8fyhk3x6cLAguzHoGNUiIlN0SJUMJU=
+github.service.anz/sysl/server-lib v0.1.14 h1:4cRd/9OQhGZAlWsvsLSmbH6y2YXqFvTmC4V7ExsLx+s=
+github.service.anz/sysl/server-lib v0.1.14/go.mod h1:QCT5MhYvLCvNpahtEzn4qAak3eDOCT/yAfnMRoB14Cg=
+github.service.anz/sysl/sysltemplate v0.0.0-20200224025019-61bb3b627061 h1:ZYCqZUKh68aSHNXjxGchlY8dgOwSnt2k3+h96ACzoYM=
+github.service.anz/sysl/sysltemplate v0.0.0-20200224025019-61bb3b627061/go.mod h1:041WatwlD3eKc6XsNzBe1BUmtuQgGplPWc9BHAvSD0o=
 golang.org/x/crypto v0.0.0-20180904163835-0709b304e793/go.mod h1:6SG95UA2DQfeDnfUPMdvaQW0Q7yPrPDi9nlGo2tz2b4=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20191202143827-86a70503ff7e h1:egKlR8l7Nu9vHGWbcUV8lqR4987UfUbBd7GbhqGzNYU=

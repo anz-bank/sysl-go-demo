@@ -4,10 +4,10 @@ package simple
 import (
 	"net/http"
 
+	"github.com/anz-bank/sysltemplate/gen/jsonplaceholder"
 	"github.service.anz/sysl/server-lib/common"
 	"github.service.anz/sysl/server-lib/restlib"
 	"github.service.anz/sysl/server-lib/validator"
-	"github.service.anz/sysl/sysltemplate/gen/jsonplaceholder"
 )
 
 // Handler interface for simple
@@ -40,14 +40,14 @@ func (s *ServiceHandler) GetFoobarListHandler(w http.ResponseWriter, r *http.Req
 
 	ctx, cancel := s.genCallback.DownstreamTimeoutContext(ctx)
 	defer cancel()
-	client := GetFoobarListClient{
-		GetTodos: s.jsonplaceholderjsonplaceholderService.GetTodos,
-	}
-
 	valErr := validator.Validate(&req)
 	if valErr != nil {
 		s.genCallback.HandleError(ctx, w, common.BadRequestError, "Invalid request", valErr)
 		return
+	}
+
+	client := GetFoobarListClient{
+		GetTodos: s.jsonplaceholderjsonplaceholderService.GetTodos,
 	}
 
 	todosresponse, err := s.serviceInterface.GetFoobarList(ctx, &req, client)

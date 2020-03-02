@@ -31,13 +31,14 @@ func NewClient(client *http.Client, serviceURL string) *Client {
 // GetTodos ...
 func (s *Client) GetTodos(ctx context.Context, req *GetTodosRequest) (*TodosResponse, error) {
 	required := []string{}
-	okResponse := &TodosResponse{}
+	var okResponse TodosResponse
+
 	u, err := url.Parse(fmt.Sprintf("%s/todos/%v", s.url, req.ID))
 	if err != nil {
 		return nil, common.CreateError(ctx, common.InternalError, "failed to parse url", err)
 	}
 
-	result, err := restlib.DoHTTPRequest(ctx, s.client, "GET", u.String(), nil, required, okResponse, nil)
+	result, err := restlib.DoHTTPRequest(ctx, s.client, "GET", u.String(), nil, required, &okResponse, nil)
 	if err != nil {
 		return nil, common.CreateError(ctx, common.DownstreamUnavailableError, "call failed: jsonplaceholder <- GET "+u.String(), err)
 	}

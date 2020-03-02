@@ -1,11 +1,11 @@
-
+all: sysl
 
 input = simple.sysl
 app = simple
 dependencies = jsonplaceholder # this can be a list separated by a space or left empty
-out = gen
+outdir = gen
 # Current go import path
-basepath = github.service.anz/sysl/sysltemplate
+basepath = github.com/anz-bank/sysltemplate
 
 ####################################################################
 #                                                                  #
@@ -16,12 +16,10 @@ basepath = github.service.anz/sysl/sysltemplate
 #                                                                  #
 #                                                                  #
 ####################################################################
-docker:
-	GOOS=linux GOARCH=amd64 go build main.go
-	docker build -t joshcarp/sysltemplate .
-	docker run -p 8080:8080 joshcarp/sysltemplate
-
-all: sysl
+# docker:
+# 	GOOS=linux GOARCH=amd64 go build main.go
+# 	docker build -t joshcarp/sysltemplate .
+# 	docker run -p 8080:8080 joshcarp/sysltemplate
 
 
 TMP = .tmp# Cache the server lib directory in tmp
@@ -41,7 +39,7 @@ sysl: clean setup gen downstream format tmp
 setup:
 	# Syncing server-lib to $(SERVERLIB)
 	git clone https://github.service.anz/sysl/server-lib/ $(SERVERLIB)/server-lib || true  # Don't fail
-	cd  $(SERVERLIB)/server-lib && git fetch && git checkout tags/v0.1.9 || true
+	cd  $(SERVERLIB)/server-lib && git fetch && git checkout tags/v0.1.14 || true
 	mkdir -p $(TMP)/server-lib/
 	mkdir -p ${outdir}/${app}
 	# Copying server-lib to $(TMP)

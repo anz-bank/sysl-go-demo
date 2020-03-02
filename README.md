@@ -2,7 +2,7 @@
 
 ## How to use this template; 
 - Click the `Use this template` button up the top
-- ctrl-f and replace all instances of `github.service.anz/sysl/sysltemplate` with your import path, eg `github.com/foobar/myrepo`
+- ctrl-f and replace all instances of `github.com/anz-bank/sysltemplate` with your import path, eg `github.com/foobar/myrepo`
 - run `make` 
 - run   `go run main.go`
 - congrats! you've just made your first sysl!
