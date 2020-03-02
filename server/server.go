@@ -1,19 +1,22 @@
 // implementation/server.go
 
 // server.go contains all the manual config code that is used to implement the generated sysl
-package implementation
+package server
 
 import (
 	"context"
 	"fmt"
-	"github.com/go-chi/chi"
-	"github.service.anz/sysl/sysltemplate/gen/jsonplaceholder"
-	"github.service.anz/sysl/sysltemplate/gen/simple"
-	"github.com/joshcarp/defaultcallback"
 	"log"
 	"net/http"
+
+	"github.com/anz-bank/sysltemplate/gen/jsonplaceholder"
+	"github.com/anz-bank/sysltemplate/gen/simple"
+	"github.com/go-chi/chi"
+	"github.com/joshcarp/defaultcallback"
 )
+
 var serverAddress = ":8080"
+
 func LoadServices(ctx context.Context) error {
 	router := chi.NewRouter()
 
@@ -27,8 +30,8 @@ func LoadServices(ctx context.Context) error {
 	genCallbacks := defaultcallback.DefaultCallback()
 
 	serviceHandler := simple.NewServiceHandler(genCallbacks,
-												&simpleServiceInterface,
-												jsonplaceholder.NewClient(http.DefaultClient, "http://jsonplaceholder.typicode.com"))
+		&simpleServiceInterface,
+		jsonplaceholder.NewClient(http.DefaultClient, "http://jsonplaceholder.typicode.com"))
 
 	// Service Router
 	serviceRouter := simple.NewServiceRouter(genCallbacks, serviceHandler)
