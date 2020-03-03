@@ -16,10 +16,10 @@ var _ = date.Parse
 
 // TodosResponse ...
 type TodosResponse struct {
-	Completed bool   `json:"completed"`
-	ID        int64  `json:"id"`
-	Title     string `json:"title"`
-	UserId    int64  `json:"userId"`
+	Completed *bool    `json:"completed,omitempty"`
+	ID        *float64 `json:"id,omitempty"`
+	Title     *string  `json:"title,omitempty"`
+	UserId    *float64 `json:"userId,omitempty"`
 }
 
 // GetTodosRequest ...

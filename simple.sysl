@@ -1,24 +1,14 @@
+import jsonplaceholder.json as jsonplaceholder ~swagger
+
+jsonplaceholder:
+    @package = "jsonplaceholder"
+
 simple:
     @package="simple"
     /foobar:
         GET:
             jsonplaceholder <- GET /todos/{id}
             return ok <: jsonplaceholder.todosResponse
-
-jsonplaceholder:
-    @package="jsonplaceholder"
-    /todos/{id<:int}:
-        GET[~body]:
-            return ok <:  todosResponse
-    !type todosResponse:
-        userId <: int:
-            @json_tag = "userId"
-        id <: int:
-            @json_tag = "id"
-        title <: string:
-            @json_tag = "title"
-        completed <: bool:
-            @json_tag = "completed"
 
 
 
