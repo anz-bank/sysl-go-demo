@@ -11,8 +11,8 @@ import (
 
 	"github.com/anz-bank/sysltemplate/gen/jsonplaceholder"
 	"github.com/anz-bank/sysltemplate/gen/simple"
+	"github.com/anz-bank/sysltemplate/pkg/defaultcallback"
 	"github.com/go-chi/chi"
-	"github.com/joshcarp/defaultcallback"
 )
 
 var serverAddress = ":8080"

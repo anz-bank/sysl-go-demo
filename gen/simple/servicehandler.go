@@ -4,10 +4,10 @@ package simple
 import (
 	"net/http"
 
+	"github.com/anz-bank/sysl-go/common"
+	"github.com/anz-bank/sysl-go/restlib"
+	"github.com/anz-bank/sysl-go/validator"
 	"github.com/anz-bank/sysltemplate/gen/jsonplaceholder"
-	"github.service.anz/sysl/server-lib/common"
-	"github.service.anz/sysl/server-lib/restlib"
-	"github.service.anz/sysl/server-lib/validator"
 )
 
 // Handler interface for simple
@@ -58,5 +58,5 @@ func (s *ServiceHandler) GetFoobarListHandler(w http.ResponseWriter, r *http.Req
 
 	headermap, httpstatus := common.RespHeaderAndStatusFromContext(ctx)
 	restlib.SetHeaders(w, headermap)
-	restlib.SendHTTPResponse(w, httpstatus, todosresponse, err)
+	restlib.SendHTTPResponse(w, httpstatus, todosresponse)
 }

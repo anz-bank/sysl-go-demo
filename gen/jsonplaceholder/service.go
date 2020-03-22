@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.service.anz/sysl/server-lib/common"
-	"github.service.anz/sysl/server-lib/restlib"
-	"github.service.anz/sysl/server-lib/validator"
+	"github.com/anz-bank/sysl-go/common"
+	"github.com/anz-bank/sysl-go/restlib"
+	"github.com/anz-bank/sysl-go/validator"
 )
 
 // Service interface for jsonplaceholder

@@ -1,15 +1,19 @@
-# syslExampleRepo: Simple REST endpoint generation in go
+# sysltemplate
 
-## How to use this template; 
+Simple REST endpoint generation in go
+
+## Prerequisites
+
+- [Sysl v0.11.0 or later ](https://sysl.io/docs/install/)
+
+## How to use this template;
+
 - Click the `Use this template` button up the top
 - ctrl-f and replace all instances of `github.com/anz-bank/sysltemplate` with your import path, eg `github.com/foobar/myrepo`
-- run `make` 
+- run `make`
+  - note: `make` must be run with a working internet connection, as it fetches transforms and grammars over the network.
 - run   `go run main.go`
 - congrats! you've just made your first sysl!
-
-
-## Docker 
-run `make docker` to build and run a docker container image of main.go
 
 
 ## Development

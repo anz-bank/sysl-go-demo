@@ -4,8 +4,8 @@ package jsonplaceholder
 import (
 	"time"
 
+	"github.com/anz-bank/sysl-go/validator"
 	"github.com/rickb777/date"
-	"github.service.anz/sysl/server-lib/validator"
 )
 
 // Reference imports to suppress unused errors
