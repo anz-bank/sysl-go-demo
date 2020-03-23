@@ -8,14 +8,13 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/anz-bank/sysltemplate/gen/jsonplaceholder"
 	"github.com/anz-bank/sysltemplate/gen/simple"
 	"github.com/anz-bank/sysltemplate/pkg/defaultcallback"
 	"github.com/go-chi/chi"
 )
-
-var serverAddress = ":8080"
 
 func LoadServices(ctx context.Context) error {
 	router := chi.NewRouter()
@@ -37,6 +36,12 @@ func LoadServices(ctx context.Context) error {
 	// Service Router
 	serviceRouter := simple.NewServiceRouter(genCallbacks, serviceHandler)
 	serviceRouter.WireRoutes(ctx, router)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	serverAddress := ":" + port
 
 	log.Println("Starting Server on " + serverAddress)
 	log.Fatal(http.ListenAndServe(serverAddress, router))

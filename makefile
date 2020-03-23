@@ -55,3 +55,7 @@ format:
 # Remove the generated files
 clean:
 	rm -rf $(outdir)
+
+# Build ###########
+server:
+	go build -o bin/sysltemplate main.go
