@@ -1,10 +1,15 @@
-import jsonplaceholder.json as jsonplaceholder ~swagger
+import ../swagger2-spec/jsonplaceholder.json as jsonplaceholder ~swagger
 
 jsonplaceholder:
     @package = "jsonplaceholder"
 
 simple:
     @package="simple"
+    !type Welcome:
+        Content <: string
+    /:
+        GET:
+            return ok <: Welcome
     /foobar:
         GET:
             jsonplaceholder <- GET /todos/{id}

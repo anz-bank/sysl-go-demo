@@ -10,9 +10,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/anz-bank/sysltemplate/gen/jsonplaceholder"
-	"github.com/anz-bank/sysltemplate/gen/simple"
-	"github.com/anz-bank/sysltemplate/pkg/defaultcallback"
+	"github.com/anz-bank/sysl-template/gen/jsonplaceholder"
+	"github.com/anz-bank/sysl-template/gen/simple"
+	"github.com/anz-bank/sysl-template/pkg/defaultcallback"
 	"github.com/go-chi/chi"
 )
 
@@ -23,6 +23,7 @@ func LoadServices(ctx context.Context) error {
 	// Struct embedding is used for the Service interface (yes, not interfaces)
 	simpleServiceInterface := simple.ServiceInterface{
 		GetFoobarList: GetFoobarList,
+		Get:           GetHandler,
 	}
 
 	// Default callback behaviour
@@ -46,6 +47,14 @@ func LoadServices(ctx context.Context) error {
 	log.Println("Starting Server on " + serverAddress)
 	log.Fatal(http.ListenAndServe(serverAddress, router))
 	return nil
+}
+
+// GetHandler refers to the endpoint in our sysl file
+func GetHandler(ctx context.Context, req *simple.GetRequest, client simple.GetClient) (*simple.Welcome, error) {
+	welcome := simple.Welcome{
+		Content: "Hello World!",
+	}
+	return &welcome, nil
 }
 
 // GetFoobarList refers to the endpoint in our sysl file
