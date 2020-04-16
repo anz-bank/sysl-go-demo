@@ -16,10 +16,11 @@ basepath = github.com/anz-bank/sysl-template
 #                                                                  #
 #                                                                  #
 ####################################################################
-# docker:
-# 	GOOS=linux GOARCH=amd64 go build main.go
-# 	docker build -t joshcarp/sysltemplate .
-# 	docker run -p 8080:8080 joshcarp/sysltemplate
+
+docker:
+	GOOS=linux GOARCH=amd64 go build main.go
+	docker build -t joshcarp/sysltemplate .
+	docker run -p 8080:8080 joshcarp/sysltemplate
 
 
 TMP = .tmp# Cache the server lib directory in tmp

@@ -4,7 +4,7 @@
 FROM alpine:latest
 
 # Add Maintainer Info
-LABEL maintainer="Joshua Carpeggiani <joshua.carpeggiani@.com>"
+LABEL maintainer="Joshua Carpeggiani <joshua.carpeggiani@anz.com>"
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
