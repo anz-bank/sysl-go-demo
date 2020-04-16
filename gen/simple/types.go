@@ -27,6 +27,10 @@ type GetRequest struct {
 type GetFoobarListRequest struct {
 }
 
+// PostBobRequest ...
+type PostBobRequest struct {
+}
+
 // *Welcome validator
 func (s *Welcome) Validate() error {
 	return validator.Validate(s)

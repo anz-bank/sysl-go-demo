@@ -43,6 +43,7 @@ func (s *ServiceRouter) WireRoutes(ctx context.Context, r chi.Router) {
 		s.gc.AddMiddleware(ctx, r)
 		r.Get("/", s.svcHandler.GetHandler)
 		r.Get("/foobar", s.svcHandler.GetFoobarListHandler)
+		r.Post("/bob", s.svcHandler.PostBobHandler)
 	})
 }
 

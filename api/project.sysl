@@ -4,14 +4,12 @@ jsonplaceholder:
     @package = "jsonplaceholder"
 
 project[~ignore]:
-    _[~ignore]:
+    _:
         simple
         jsonplaceholder
 simple:
     @package="simple"
     !type Welcome:
-        Content <: additional_type
-    !type additional_type:
         Content <: string
     /:
         GET:

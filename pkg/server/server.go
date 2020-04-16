@@ -66,3 +66,11 @@ func GetFoobarList(ctx context.Context, req *simple.GetFoobarListRequest, client
 	fmt.Println(ans)
 	return ans, err
 }
+
+// // GetHandler refers to the endpoint in our sysl file
+// func GetBobHandler(ctx context.Context, req *simple.GetBobListRequest, client simple.GetBobListClient) (*simple.Welcome, error) {
+// 	welcome := simple.Welcome{
+// 		Content: "Hello World!",
+// 	}
+// 	return &welcome, nil
+// }

@@ -60,6 +60,7 @@ format:
 	goimports -w ${outdir}/${app}/*
 	$(foreach path, $(dependencies), $(shell gofmt -s -w ${outdir}/${path}/*))
 	$(foreach path, $(dependencies), $(shell goimports -w ${outdir}/${path}/*))
+	./replace.sh
 
 
 # Remove the tmp directory after
