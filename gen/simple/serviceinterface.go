@@ -3,11 +3,13 @@ package simple
 
 import (
 	"context"
+	"time"
 
+	"github.com/anz-bank/sysl-go/config"
 	"github.com/anz-bank/sysl-template/gen/jsonplaceholder"
 )
 
-// DefaultSimpleImpl  ...
+// DefaultSimpleImpl ...
 type DefaultSimpleImpl struct {
 }
 
@@ -29,4 +31,10 @@ type GetFoobarListClient struct {
 type ServiceInterface struct {
 	Get           func(ctx context.Context, req *GetRequest, client GetClient) (*Welcome, error)
 	GetFoobarList func(ctx context.Context, req *GetFoobarListRequest, client GetFoobarListClient) (*jsonplaceholder.TodosResponse, error)
+}
+
+// DownstreamConfig for simple
+type DownstreamConfig struct {
+	ContextTimeout  time.Duration               `yaml:"contextTimeout"`
+	Jsonplaceholder config.CommonDownstreamData `yaml:"jsonplaceholder"`
 }

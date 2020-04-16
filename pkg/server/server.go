@@ -1,4 +1,4 @@
-// implementation/server.go
+// server/server.go
 
 // server.go contains all the manual config code that is used to implement the generated sysl
 package server

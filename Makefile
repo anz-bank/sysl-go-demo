@@ -1,6 +1,6 @@
 all: sysl
 
-input = api/sysl/simple.sysl
+input = api/simple.sysl
 app = simple
 dependencies = jsonplaceholder # this can be a list separated by a space or left empty
 outdir = gen
@@ -16,45 +16,55 @@ basepath = github.com/anz-bank/sysl-template
 #                                                                  #
 #                                                                  #
 ####################################################################
+# docker:
+# 	GOOS=linux GOARCH=amd64 go build main.go
+# 	docker build -t joshcarp/sysltemplate .
+# 	docker run -p 8080:8080 joshcarp/sysltemplate
 
 
-TRANSLOCATION = github.com/anz-bank/sysl-go/codegen/transforms
+TMP = .tmp# Cache the server lib directory in tmp
+SERVERLIB = /var/tmp
+TRANSLOCATION = .tmp/sysl-go/codegen/transforms
 TRANSFORMS= svc_error_types.sysl svc_handler.sysl svc_interface.sysl svc_router.sysl svc_types.sysl
 DOWNSTREAMTRANSFORMS = svc_client.sysl svc_error_types.sysl svc_types.sysl
-GRAMMAR=github.com/anz-bank/sysl-go/codegen/grammars/go.gen.g
+GRAMMAR=$(wildcard .tmp/sysl-go/codegen/grammars/go.gen.g)
 START=goFile
-ROOT=$(shell pwd)
 
 
 # Always execute these with just `make`
 .PHONY: setup clean gen
-sysl: clean setup gen downstream format
+sysl: clean setup gen downstream format tmp
 
-# Create the output directories
+# try to clone, then try to fetch and pull
 setup:
+	# Syncing server-lib to $(SERVERLIB)
+	git clone https://github.com/anz-bank/sysl-go/ $(SERVERLIB)/sysl-go || true  # Don't fail
+	cd  $(SERVERLIB)/sysl-go || true
+	mkdir -p $(TMP)/sysl-go/
 	mkdir -p ${outdir}/${app}
+	# Copying server-lib to $(TMP)
+	cp -rf $(SERVERLIB)/sysl-go $(TMP)/
 	$(foreach path, $(dependencies), $(shell mkdir -p ${outdir}/$(path)))
     $(foreach path, $(app), $(shell mkdir -p ${outdir}/$(path)))
 
-# Generate code for the server endpoints
+# Generate files with internal git service
 gen:
-	$(foreach file, $(TRANSFORMS), $(shell sysl codegen --root=$(ROOT) --basepath=$(basepath)/${outdir}/ --transform $(TRANSLOCATION)/$(file) --grammar ${GRAMMAR} --start ${START} --outdir=${outdir}/${app} --app-name ${app} $(input)))
+	$(foreach file, $(TRANSFORMS), $(shell sysl codegen --basepath=$(basepath)/${outdir}/ --transform $(TRANSLOCATION)/$(file) --grammar ${GRAMMAR} --start ${START} --outdir=${outdir}/${app} --app-name ${app} $(input)))
 
-# Generate code for the downstream clients
 downstream:
-	$(foreach file, $(DOWNSTREAMTRANSFORMS), $(foreach downstream, $(dependencies), $(shell sysl codegen --root=$(ROOT) --basepath=$(basepath)/${outdir}/ --transform $(TRANSLOCATION)/$(file) --grammar ${GRAMMAR} --start ${START} --outdir=${outdir}/${downstream} --app-name ${downstream} $(input))))
+	$(foreach file, $(DOWNSTREAMTRANSFORMS), $(foreach downstream, $(dependencies), $(shell sysl codegen --basepath=$(basepath)/${outdir}/ --transform $(TRANSLOCATION)/$(file) --grammar ${GRAMMAR} --start ${START} --outdir=${outdir}/${downstream} --app-name ${downstream} $(input))))
 
-# Formats the generated code
 format:
 	gofmt -s -w ${outdir}/${app}/*
 	goimports -w ${outdir}/${app}/*
 	$(foreach path, $(dependencies), $(shell gofmt -s -w ${outdir}/${path}/*))
 	$(foreach path, $(dependencies), $(shell goimports -w ${outdir}/${path}/*))
 
+
+# Remove the tmp directory after
+tmp:
+	rm -rf $(TMP)
+
 # Remove the generated files
 clean:
 	rm -rf $(outdir)
-
-# Builds the binary
-server:
-	go build -o bin/sysl-template main.go

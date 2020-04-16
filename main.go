@@ -4,7 +4,7 @@ package main
 import (
 	"context"
 
-	"github.com/anz-bank/sysl-template/internal/server"
+	"github.com/anz-bank/sysl-template/pkg/server"
 )
 
 func main() {

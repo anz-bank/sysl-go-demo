@@ -26,7 +26,7 @@ api/: contains all API specifications for the generated application
 
 gen/: contains all the generated code for the service
 
-[internal/server/server.go](internal/server/server.go): The hand-written code that's written; Server config and such
+[internal/server/server.go](pkg/server/server.go): The hand-written code that's written; Server config and such
 
 pkg/defaultcallback: contains code that sets up the defaults for generated code. (This will no longer be necessary in future Sysl versions)
 

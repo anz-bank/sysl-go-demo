@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/anz-bank/sysl-go/common"
+	"github.com/anz-bank/sysl-go/core"
 	"github.com/anz-bank/sysl-go/restlib"
 	"github.com/anz-bank/sysl-go/validator"
 	"github.com/anz-bank/sysl-template/gen/jsonplaceholder"
@@ -18,20 +19,20 @@ type Handler interface {
 
 // ServiceHandler for simple API
 type ServiceHandler struct {
-	genCallback                           GenCallback
+	genCallback                           core.RestGenCallback
 	serviceInterface                      *ServiceInterface
 	jsonplaceholderjsonplaceholderService jsonplaceholder.Service
 }
 
 // NewServiceHandler for simple
-func NewServiceHandler(genCallback GenCallback, serviceInterface *ServiceInterface, jsonplaceholderjsonplaceholderService jsonplaceholder.Service) *ServiceHandler {
+func NewServiceHandler(genCallback core.RestGenCallback, serviceInterface *ServiceInterface, jsonplaceholderjsonplaceholderService jsonplaceholder.Service) *ServiceHandler {
 	return &ServiceHandler{genCallback, serviceInterface, jsonplaceholderjsonplaceholderService}
 }
 
 // GetHandler ...
 func (s *ServiceHandler) GetHandler(w http.ResponseWriter, r *http.Request) {
 	if s.serviceInterface.Get == nil {
-		s.genCallback.HandleError(r.Context(), w, common.InternalError, "not implemented", nil)
+		common.HandleError(r.Context(), w, common.InternalError, "not implemented", nil, s.genCallback.MapError)
 		return
 	}
 
@@ -43,7 +44,7 @@ func (s *ServiceHandler) GetHandler(w http.ResponseWriter, r *http.Request) {
 	defer cancel()
 	valErr := validator.Validate(&req)
 	if valErr != nil {
-		s.genCallback.HandleError(ctx, w, common.BadRequestError, "Invalid request", valErr)
+		common.HandleError(ctx, w, common.BadRequestError, "Invalid request", valErr, s.genCallback.MapError)
 		return
 	}
 
@@ -51,7 +52,7 @@ func (s *ServiceHandler) GetHandler(w http.ResponseWriter, r *http.Request) {
 
 	welcome, err := s.serviceInterface.Get(ctx, &req, client)
 	if err != nil {
-		s.genCallback.HandleError(ctx, w, common.DownstreamUnexpectedResponseError, "Downstream failure", err)
+		common.HandleError(ctx, w, common.DownstreamUnexpectedResponseError, "Downstream failure", err, s.genCallback.MapError)
 		return
 	}
 
@@ -63,7 +64,7 @@ func (s *ServiceHandler) GetHandler(w http.ResponseWriter, r *http.Request) {
 // GetFoobarListHandler ...
 func (s *ServiceHandler) GetFoobarListHandler(w http.ResponseWriter, r *http.Request) {
 	if s.serviceInterface.GetFoobarList == nil {
-		s.genCallback.HandleError(r.Context(), w, common.InternalError, "not implemented", nil)
+		common.HandleError(r.Context(), w, common.InternalError, "not implemented", nil, s.genCallback.MapError)
 		return
 	}
 
@@ -75,7 +76,7 @@ func (s *ServiceHandler) GetFoobarListHandler(w http.ResponseWriter, r *http.Req
 	defer cancel()
 	valErr := validator.Validate(&req)
 	if valErr != nil {
-		s.genCallback.HandleError(ctx, w, common.BadRequestError, "Invalid request", valErr)
+		common.HandleError(ctx, w, common.BadRequestError, "Invalid request", valErr, s.genCallback.MapError)
 		return
 	}
 
@@ -85,7 +86,7 @@ func (s *ServiceHandler) GetFoobarListHandler(w http.ResponseWriter, r *http.Req
 
 	todosresponse, err := s.serviceInterface.GetFoobarList(ctx, &req, client)
 	if err != nil {
-		s.genCallback.HandleError(ctx, w, common.DownstreamUnexpectedResponseError, "Downstream failure", err)
+		common.HandleError(ctx, w, common.DownstreamUnexpectedResponseError, "Downstream failure", err, s.genCallback.MapError)
 		return
 	}
 

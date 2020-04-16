@@ -2,11 +2,9 @@ package defaultcallback
 
 import (
 	"context"
-	"net/http"
 	"time"
 
 	"github.com/anz-bank/sysl-go/common"
-
 	"github.com/anz-bank/sysl-go/validator"
 	"github.com/go-chi/chi"
 )
@@ -44,12 +42,8 @@ func (g Callback) Config() validator.Validator {
 	return g.UpstreamConfig
 }
 
-func (g Callback) HandleError(ctx context.Context, w http.ResponseWriter, kind common.Kind, message string, cause error) {
-	se := common.CreateError(ctx, kind, message, cause)
-
-	httpError := common.HandleError(ctx, se)
-
-	httpError.WriteError(ctx, w)
+func (g Callback) MapError(ctx context.Context, err error) *common.HTTPError {
+	return nil
 }
 
 func (g Callback) DownstreamTimeoutContext(ctx context.Context) (context.Context, context.CancelFunc) {
