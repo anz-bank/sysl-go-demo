@@ -1,6 +1,6 @@
 all: sysl
 
-input = api/simple.sysl
+input = api/project.sysl
 app = simple
 dependencies = jsonplaceholder # this can be a list separated by a space or left empty
 outdir = gen

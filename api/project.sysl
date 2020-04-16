@@ -3,9 +3,15 @@ import jsonplaceholder.json as jsonplaceholder ~swagger
 jsonplaceholder:
     @package = "jsonplaceholder"
 
+project[~ignore]:
+    _[~ignore]:
+        simple
+        jsonplaceholder
 simple:
     @package="simple"
     !type Welcome:
+        Content <: additional_type
+    !type additional_type:
         Content <: string
     /:
         GET:
