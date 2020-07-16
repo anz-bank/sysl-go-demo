@@ -1,0 +1,23 @@
+library:
+  log:
+    format: text
+    level: 5
+    caller: false
+custom:
+  adminServer:
+    common:
+      hostName: ""
+      port: 3333
+    basePath: /admintest
+    readTimeout: 1s
+    writeTimeout: 3s
+genCode:
+  upstream:
+    contextTimeout: 120s
+    http:
+      basePath: /
+      readTimeout: 120s
+      writeTimeout: 120s
+      common:
+        hostName: ""
+        port: 6061

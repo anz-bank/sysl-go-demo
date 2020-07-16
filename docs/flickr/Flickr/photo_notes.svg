@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="219px" preserveAspectRatio="none" style="width:207px;height:219px;" version="1.1" viewBox="0 0 207 219" width="207px" zoomAndPan="magnify"><defs><filter height="300%" id="fda1yium0enyq" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f77682fd75c3e1fc6a82f566c0814d0f]
+class _0--><rect codeLine="7" fill="#FEFECE" filter="url(#fda1yium0enyq)" height="66.7422" id="_0" style="stroke: #A80036; stroke-width: 1.5;" width="130" x="32.5" y="134"/><ellipse cx="58.3" cy="152.9688" fill="#DA70D6" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M55.8156,156.2656 C55.1594,156.2656 54.7688,156.5781 54.7688,157.125 C54.7688,157.375 54.9094,157.6406 55.1281,157.7969 C55.2844,157.9219 55.5031,157.9688 55.9094,157.9688 L59.3781,157.9688 C60.8625,157.9688 61.8781,157.5781 62.7063,156.6875 C63.4875,155.875 63.8938,154.8281 63.8938,153.5781 L63.8938,152.7813 C63.8938,150.1094 62.0031,148.0625 59.5188,148.0625 L55.9094,148.0625 C55.4563,148.0625 55.3313,148.0781 55.175,148.1719 C54.925,148.3281 54.7688,148.625 54.7688,148.9063 C54.7688,149.4531 55.1438,149.75 55.8156,149.75 L55.8156,156.2656 Z M57.5031,156.2656 L57.5031,149.75 L59.3781,149.75 C60.2844,149.75 60.925,150.0313 61.4406,150.625 C61.925,151.2031 62.2063,151.9531 62.2063,152.75 L62.2063,153.5313 C62.2063,154.4063 61.9719,155 61.5031,155.5156 C60.9719,156.0625 60.4094,156.2656 59.3938,156.2656 L57.5031,156.2656 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="78" x="72.7" y="150.1387">«Flickr.Note»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="27" x="98.2" y="164.1074">note</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="33.5" x2="161.5" y1="171.9375" y2="171.9375"/><ellipse cx="43.5" cy="182.9375" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="104" x="52.5" y="186.1479">description : string</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="33.5" x2="161.5" y1="192.7422" y2="192.7422"/><!--MD5=[37d6e5304215b5e345f427169db70937]
+class _1--><rect codeLine="10" fill="#FEFECE" filter="url(#fda1yium0enyq)" height="66.7422" id="_1" style="stroke: #A80036; stroke-width: 1.5;" width="181" x="7" y="7"/><ellipse cx="35.5" cy="25.9688" fill="#DA70D6" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M33.0156,29.2656 C32.3594,29.2656 31.9688,29.5781 31.9688,30.125 C31.9688,30.375 32.1094,30.6406 32.3281,30.7969 C32.4844,30.9219 32.7031,30.9688 33.1094,30.9688 L36.5781,30.9688 C38.0625,30.9688 39.0781,30.5781 39.9063,29.6875 C40.6875,28.875 41.0938,27.8281 41.0938,26.5781 L41.0938,25.7813 C41.0938,23.1094 39.2031,21.0625 36.7188,21.0625 L33.1094,21.0625 C32.6563,21.0625 32.5313,21.0781 32.375,21.1719 C32.125,21.3281 31.9688,21.625 31.9688,21.9063 C31.9688,22.4531 32.3438,22.75 33.0156,22.75 L33.0156,29.2656 Z M34.7031,29.2656 L34.7031,22.75 L36.5781,22.75 C37.4844,22.75 38.125,23.0313 38.6406,23.625 C39.125,24.2031 39.4063,24.9531 39.4063,25.75 L39.4063,26.5313 C39.4063,27.4063 39.1719,28 38.7031,28.5156 C38.1719,29.0625 37.6094,29.2656 36.5938,29.2656 L34.7031,29.2656 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="123" x="50.5" y="23.1387">«Flickr.Photo_notes»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="73" x="75.5" y="37.1074">Photo_notes</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="8" x2="187" y1="44.9375" y2="44.9375"/><ellipse cx="18" cy="55.9375" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="33" x="27" y="59.1479">note :</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="118" x="64" y="59.1479">Sequence &lt;Note&gt;</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="8" x2="187" y1="65.7422" y2="65.7422"/><!--MD5=[533817dd71937d491a48f9e800845371]
+reverse link _1 to _0--><path codeLine="13" d="M97.5,87.097 C97.5,102.5382 97.5,119.4673 97.5,133.7126 " fill="none" id="_1&lt;-_0" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="97.5,74.016,93.5,80.016,97.5,86.016,101.5,80.016,97.5,74.016" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="23" x="72.3078" y="122.9463">0..*</text><!--MD5=[9640619b2f31f3f6e000b506b687e6f4]
+@startuml
+''''''''''''''''''''''''''''''''''''''''''
+''                                      ''
+''  AUTOGENERATED CODE - - DO NOT EDIT!  ''
+''                                      ''
+''''''''''''''''''''''''''''''''''''''''''
+
+class "note" as _0 << (D,orchid) Flickr.Note >> {
++ description : string
+}
+class "Photo_notes" as _1 << (D,orchid) Flickr.Photo_notes >> {
++ note : **Sequence <Note>**
+}
+_1 *- - "0..*" _0
+@enduml
+
+@startuml
+
+class "note" as _0 << (D,orchid) Flickr.Note >> {
++ description : string
+}
+class "Photo_notes" as _1 << (D,orchid) Flickr.Photo_notes >> {
++ note : **Sequence <Note>**
+}
+_1 *- - "0..*" _0
+@enduml
+
+PlantUML version 1.2020.16beta3(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

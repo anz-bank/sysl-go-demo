@@ -1,0 +1,6 @@
+# This file serves as a remote stub for github.com/anz-bank/sysl-go/codegen/arrai/service.arrai.
+# Avoid maintaining a copy of service.arrai here so that it doesn't drift away from the remote copy.
+# It will not needed once https://github.com/arr-ai/arrai/issues/504 is closed.
+let [_, basepath, json, appname, groups] = //os.args;
+let service = //{github.com/anz-bank/sysl-go/codegen/arrai/service.arrai};
+service
