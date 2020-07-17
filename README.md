@@ -6,7 +6,7 @@ Demo REST Application generated using Sysl-Go
 
 - [Sysl v0.140.0 or later ](https://sysl.io/docs/install/)
 - [Arr.ai v0.87.0 or later](https://github.com/arr-ai/arrai)
-- Go 1.14
+- [Go 1.14](https://golang.org/doc/install)
 
 ## Building & Running
 
@@ -27,30 +27,30 @@ Congrats! You've just built and run the sysl-go demo application!
 
 ## File structure
 
-[internal/gen/petdemo]: Contains the all the generated code for the petdemo app.
-[internal/gen/flickr]: Contains the generated code for the flickr downstream service.
-[internal/gen/petstore]: Contains the generated code for the petstore downstream service.
+- [internal/gen/petdemo](internal/gen/petdemo): Contains the all the generated code for the petdemo app.
+- [internal/gen/flickr](internal/gen/flickr): Contains the generated code for the flickr downstream service.
+- [internal/gen/petstore](internal/gen/petstore): Contains the generated code for the petstore downstream service.
 
-[internal/petdemo]: Hand crafted config and server for petdemo app.
-[internal/petdemo/handlers]: Hand crafted handlers for the petdemo app.
+- [internal/petdemo](internal/petdemo): Hand crafted config and server for petdemo app.
+- [internal/petdemo/handlers](internal/petdemo/handlers): Hand crafted handlers for the petdemo app.
 
-[internal/flickr]: Hand crafted config and server for flickr downstream service.
-[internal/flickr/handlers]: Hand crafted handlers for the flickr downstream service.
+- [internal/flickr](internal/flickr): Hand crafted config and server for flickr downstream service.
+- [internal/flickr/handlers](internal/flickr/handlers): Hand crafted handlers for the flickr downstream service.
 
-[internal/petstore]: Hand crafted config and server for petstore downstream service.
-[internal/petstore/handlers]: Hand crafted handlers for the petstore downstream service.
+- [internal/petstore](internal/petstore): Hand crafted config and server for petstore downstream service.
+- [internal/petstore/handlers](internal/petstore/handlers): Hand crafted handlers for the petstore downstream service.
 
 ## Configuration
 
 The configuration is driven through the YAML files in the repository root.
-- [config-flickr.yml](config-flickr.yml)
-- [config-petdemo.yaml](config-petdemo.yaml)
-- [config-petstore.yaml](config-petstore.yaml)
+- [specs/backend/flickr/flickr.yaml](specs/backend/flickr/flickr.yaml)
+- [specs/backend/petstore/petstore.yaml](specs/backend/petstore/petstore.yaml)
+- [specs/frontend/petdemo/petdemo.yaml](specs/frontend/petdemo/petdemo.yaml)
 The arrai and sysl versions can be locked in the arraiw.properties and syslw.properties files in repository root.
 
 ## Application specs
 
 The application specs are stored in the form of yaml files in specs directory. 
-- specs/backend/flickr/flickr.yaml
-- specs/backend/petstore/petstore.yaml
-- specs/frontend/petdemo/petdemo.yaml
+- [specs/backend/flickr/flickr.yaml](specs/backend/flickr/flickr.yaml)
+- [specs/backend/petstore/petstore.yaml](specs/backend/petstore/petstore.yaml)
+- [specs/frontend/petdemo/petdemo.yaml](specs/frontend/petdemo/petdemo.yaml)
