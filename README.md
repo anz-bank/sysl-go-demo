@@ -1,4 +1,4 @@
-# syslgen-demo
+# syslgo-demo
 
 Demo REST Application generated using Sysl-Go
 
