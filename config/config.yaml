@@ -1,0 +1,21 @@
+library:
+  log:
+    format: text
+    level: info
+    caller: false
+
+genCode:
+  upstream:
+    contextTimeout: 120s
+    http:
+      basePath: /
+      readTimeout: 120s
+      writeTimeout: 120s
+      common:
+        hostName: ""
+        port: 6060
+  downstream:
+    contextTimeout: 120s
+    petstore:
+      serviceURL: https://australia-southeast1-innate-rite-238510.cloudfunctions.net/pet-demo
+      clientTimeout: 59s
