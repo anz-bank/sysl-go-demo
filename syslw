@@ -1,0 +1,68 @@
+#!/usr/bin/env sh
+
+##############################################################################
+##
+##  Sysl wrapper for UN*X
+##
+##############################################################################
+
+# function to retrieve a property from the syslw.properties file
+syslw_property() {
+    grep "${1}" ${WRAPPER_DIR}/syslw.properties|cut -d'=' -f2
+}
+
+# cache the wrapper directory
+PRG="$0"
+while [ -h "$PRG" ] ; do
+    ls=$(ls -ld "$PRG")
+    link=$(expr "$ls" : '.*-> \(.*\)$')
+    if expr "$link" : '/.*' > /dev/null; then
+        PRG="$link"
+    else
+        PRG=$(dirname "$PRG")"/$link"
+    fi
+done
+SAVED="$(pwd)"
+cd "$(dirname "${PRG}")/" >/dev/null || exit
+WRAPPER_DIR="$(pwd -P)"
+cd "$SAVED" >/dev/null || exit
+
+# cache the url to retrieve the artifact
+VERSION=$(syslw_property 'version')
+BASE_URL=$(syslw_property 'downloadUrl')
+
+OS_ARCH=$(uname -m | tr '[:upper:]' '[:lower:]')
+OS_NAME=$(uname -s | tr '[:upper:]' '[:lower:]')
+if [ "$OS_ARCH" = "x86_64" ]
+then
+    ARCH="amd64"
+else
+    ARCH="386"
+fi
+if [ "$OS_NAME" = "darwin" ]
+then
+    PLATFORM="darwin"
+else
+    PLATFORM="linux"
+fi
+FILENAME="sysl_${VERSION}_${PLATFORM}-${ARCH}.tar.gz"
+URL="${BASE_URL}v${VERSION}/${FILENAME}"
+
+# cache the release directory, archive and executable
+PLATFORM_LOWER=$(echo ${PLATFORM} | tr '[:upper:]' '[:lower:]')
+RELEASE_DIR="${WRAPPER_DIR}/.sysl/${VERSION}/${PLATFORM_LOWER}/${ARCH}"
+RELEASE_EXE="${RELEASE_DIR}/sysl"
+
+# make the release directory if necessary
+mkdir -p ${RELEASE_DIR}
+
+# download and extract the executable if it doesn't exist
+if [ ! -e ${RELEASE_EXE} ]; then
+    cd "${RELEASE_DIR}" || exit
+    >&2 echo "Downloading sysl: ${URL}"
+    curl -L --silent ${URL} | tar xz sysl
+    cd "$SAVED" || exit
+fi
+
+# execute the command
+${RELEASE_EXE} "$@"

@@ -1,31 +1,57 @@
-# Petdemo
+# sysl-go-demo
+
+Demo REST Application generated using Sysl-Go
 
 ## Prerequisites
 
-- [Sysl v0.11.0 or later ](https://sysl.io/docs/install/)
-- Go 1.13
+- [Go 1.14](https://golang.org/doc/install)
+- [Sysl v0.140.0 or later ](https://sysl.io/docs/install/)
+- [Arr.ai v0.87.0 or later](https://github.com/arr-ai/arrai)
+- [sysl-catalog (optional)](https://github.com/anz-bank/sysl-catalog)
 
-## Building application Docker container image
+## Building & Running
 
-To build a docker container image for the application using the template
-Dockerfile, you first need to vendor all the dependencies. You can do so
-with the command
-```sh
-go mod vendor
-```
+- run `make gen`. 
+  - This generates the Go code.
+- run `make build`. 
+  - This builds the generated code using the installed Go runtime.
+- run `make run`.
+  - This runs the petdemo app and the downstream apps i.e. flickr and petstore
+- `curl http://localhost:8080/random-pet-pic` or open in browser.
+  - Output: `{"name":"white golden retriever","uri":"http://www.example.com/dog/wgr"}`
 
-Then run:
+Congrats! You've just built and run the sysl-go demo application!
 
-```sh
-docker build -t docker_petdemo -f Dockerfile .
-```
+## Development
 
-## Running the application in a Docker container
+- Refer to the [Makefile](Makefile) to generate client and server code for all of your applications.
 
-o run the application inside the container, you need to prepare an
-application config file. Assuming you have an application config file
-present as `config.yml`, the containerised application can be run as:
+## File structure
 
-```sh
-docker run --rm -t -p 8080:8080 --mount type=bind,source="$PWD"/config.yml,target=/app/config.yml,readonly docker_petdemo:latest /bin/Petdemo /app/config.yml
-```
+- [internal/gen/petdemo](internal/gen/petdemo): Contains the all the generated code for the petdemo app.
+- [internal/gen/flickr](internal/gen/flickr): Contains the generated code for the flickr downstream service.
+- [internal/gen/petstore](internal/gen/petstore): Contains the generated code for the petstore downstream service.
+
+- [internal/petdemo](internal/petdemo): Hand crafted config and server for petdemo app.
+- [internal/petdemo/handlers](internal/petdemo/handlers): Hand crafted handlers for the petdemo app.
+
+- [internal/flickr](internal/flickr): Hand crafted config and server for flickr downstream service.
+- [internal/flickr/handlers](internal/flickr/handlers): Hand crafted handlers for the flickr downstream service.
+
+- [internal/petstore](internal/petstore): Hand crafted config and server for petstore downstream service.
+- [internal/petstore/handlers](internal/petstore/handlers): Hand crafted handlers for the petstore downstream service.
+
+## Configuration
+
+The configuration is driven through the YAML files in the repository root.
+- [specs/backend/flickr/flickr.yaml](specs/backend/flickr/flickr.yaml)
+- [specs/backend/petstore/petstore.yaml](specs/backend/petstore/petstore.yaml)
+- [specs/frontend/petdemo/petdemo.yaml](specs/frontend/petdemo/petdemo.yaml)
+The arrai and sysl versions can be locked in the arraiw.properties and syslw.properties files in repository root.
+
+## Application specs
+
+The application specs are stored in the form of yaml files in specs directory. 
+- [specs/backend/flickr/flickr.yaml](specs/backend/flickr/flickr.yaml)
+- [specs/backend/petstore/petstore.yaml](specs/backend/petstore/petstore.yaml)
+- [specs/frontend/petdemo/petdemo.yaml](specs/frontend/petdemo/petdemo.yaml)

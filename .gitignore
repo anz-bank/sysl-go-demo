@@ -1,2 +1,5 @@
-/.sysl-tmp
-/local.mk
+.DS_Store
+sysl.json
+.arrai
+.sysl
+.vscode
