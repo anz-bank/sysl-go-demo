@@ -9,7 +9,6 @@ jobs:
       - uses: actions-contrib/golangci-lint@v1
         env:
           GO111MODULE: "on"
-          GOFLAGS: "-mod=vendor"
 
   test:
     runs-on: ubuntu-latest
