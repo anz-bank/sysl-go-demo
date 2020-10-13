@@ -1,0 +1,43 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Pet Service
+  license:
+    name: MIT
+servers:
+  - url: https://australia-southeast1-innate-rite-238510.cloudfunctions.net/pet-demo
+paths:
+  /pet:
+    get:
+      summary: Get random pet
+      operationId: getPet
+      tags:
+        - pet
+      responses:
+        "200":
+          description: A random pet
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pet"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Pet:
+      type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

@@ -1,5 +1,2 @@
-.DS_Store
-sysl.json
-.arrai
-.sysl
-.vscode
+/.sysl-tmp
+/local.mk

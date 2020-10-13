@@ -1,20 +1,11 @@
-# Dockerfile References: https://docs.docker.com/engine/reference/builder/
+ARG REGISTRY
 
-# Start from the latest golang base image
-FROM alpine:latest
-
-# Add Maintainer Info
-LABEL maintainer="Joshua Carpeggiani <joshua.carpeggiani@anz.com>"
-
-# Set the Current Working Directory inside the container
+FROM ${REGISTRY}${REGISTRY:+/}golang:alpine AS builder
 WORKDIR /app
+COPY . .
+RUN go build -mod=vendor -o Petdemo ./cmd/Petdemo
 
-# Copy go mod and sum files
-COPY main ./
-
-# Expose port 8080 to the outside world
-EXPOSE 80
-EXPOSE 8080
-
-# Command to run the executable
-CMD ["./main"]
+FROM ${REGISTRY}${REGISTRY:+/}alpine
+WORKDIR /app
+COPY --from=builder /app/Petdemo /bin/
+CMD Petdemo
