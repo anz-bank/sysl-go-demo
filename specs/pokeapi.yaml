@@ -1,0 +1,60 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: PokeAPI Service
+  license:
+    name: MIT
+servers:
+  - url: https://pokeapi.co/api/v2
+paths:
+  /pokemon/{id}:
+    get:
+      summary: Get a pokemon
+      operationId: getPokemon
+      tags:
+        - pokemon
+      parameters:
+        - name: id
+          description: The identifier for this resource.
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: A pokemon
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pokemon"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Pokemon:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The identifier for this resource.
+        name:
+          type: string
+          description: The name for this resource.
+        height:
+          type: integer
+          description: The height of this Pokémon in decimetres.
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
