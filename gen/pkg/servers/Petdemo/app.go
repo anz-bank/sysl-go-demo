@@ -10,11 +10,13 @@ import (
 	"github.com/anz-bank/sysl-go/handlerinitialiser"
 
 	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/petstore"
+	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/pokeapi"
 )
 
 // DownstreamClients for Petdemo
 type DownstreamClients struct {
 	petstoreClient *petstore.Client
+	pokeapiClient  *pokeapi.Client
 }
 
 // BuildDownstreamClients ...
@@ -37,8 +39,22 @@ func BuildDownstreamClients(ctx context.Context, hooks *core.Hooks, cfg *config.
 		Headers: downstreamConfig.Petstore.Headers,
 	}
 
+	pokeapiHTTPClient, err := core.BuildDownstreamHTTPClient(
+		"pokeapi",
+		&downstreamConfig.Pokeapi,
+	)
+	if err != nil {
+		return nil, err
+	}
+	pokeapiClient := &pokeapi.Client{
+		Client:  pokeapiHTTPClient,
+		URL:     downstreamConfig.Pokeapi.ServiceURL,
+		Headers: downstreamConfig.Pokeapi.Headers,
+	}
+
 	return &DownstreamClients{
 		petstoreClient: petstoreClient,
+		pokeapiClient:  pokeapiClient,
 	}, err
 }
 
@@ -97,6 +113,7 @@ func Serve(
 				genCallbacks,
 				serviceInterface,
 				clients.petstoreClient,
+				clients.pokeapiClient,
 			)
 			if err != nil {
 				return nil, err

@@ -42,6 +42,16 @@ const AppSpec = `{
        }
       },
       {
+       "call": {
+        "target": {
+         "part": [
+          "PokeAPI"
+         ]
+        },
+        "endpoint": "GET /pokemon/{id}"
+       }
+      },
+      {
        "ret": {
         "payload": "ok <: Pet"
        }
@@ -58,7 +68,7 @@ const AppSpec = `{
        "col": 8
       },
       "end": {
-       "line": 14,
+       "line": 15,
        "col": 4
       }
      }
@@ -73,11 +83,11 @@ const AppSpec = `{
         "sourceContext": {
          "file": "petdemo.sysl",
          "start": {
-          "line": 15,
+          "line": 16,
           "col": 17
          },
          "end": {
-          "line": 15,
+          "line": 16,
           "col": 17
          }
         }
@@ -87,11 +97,11 @@ const AppSpec = `{
      "sourceContext": {
       "file": "petdemo.sysl",
       "start": {
-       "line": 14,
+       "line": 15,
        "col": 4
       },
       "end": {
-       "line": 17
+       "line": 18
       }
      }
     }
@@ -268,6 +278,250 @@ const AppSpec = `{
     "end": {
      "line": 7,
      "col": 42
+    }
+   }
+  },
+  "PokeAPI": {
+   "name": {
+    "part": [
+     "PokeAPI"
+    ]
+   },
+   "longName": "PokeAPI Service",
+   "attrs": {
+    "description": {
+     "s": "No description.\n"
+    },
+    "host": {
+     "s": "pokeapi.co"
+    },
+    "license": {
+     "s": "MIT"
+    },
+    "package": {
+     "s": "pokeapi"
+    },
+    "version": {
+     "s": "1.0.0"
+    }
+   },
+   "endpoints": {
+    "GET /pokemon/{id}": {
+     "name": "GET /pokemon/{id}",
+     "docstring": "No description.",
+     "attrs": {
+      "patterns": {
+       "a": {
+        "elt": [
+         {
+          "s": "rest"
+         }
+        ]
+       }
+      }
+     },
+     "stmt": [
+      {
+       "ret": {
+        "payload": "error <: Error"
+       }
+      },
+      {
+       "ret": {
+        "payload": "ok <: Pokemon"
+       }
+      }
+     ],
+     "restParams": {
+      "method": "GET",
+      "path": "/pokemon/{id}",
+      "urlParam": [
+       {
+        "name": "id",
+        "type": {
+         "primitive": "INT",
+         "sourceContext": {
+          "file": "./pokeapi.yaml",
+          "start": {
+           "line": 14,
+           "col": 13
+          },
+          "end": {
+           "line": 14,
+           "col": 21
+          }
+         }
+        }
+       }
+      ]
+     },
+     "sourceContext": {
+      "file": "./pokeapi.yaml",
+      "start": {
+       "line": 15,
+       "col": 8
+      },
+      "end": {
+       "line": 23,
+       "col": 4
+      }
+     }
+    }
+   },
+   "types": {
+    "Error": {
+     "tuple": {
+      "attrDefs": {
+       "code": {
+        "primitive": "INT",
+        "attrs": {
+         "json_tag": {
+          "s": "code"
+         }
+        },
+        "constraint": [
+         {
+          "range": {
+           "min": {
+            "i": "-2147483648"
+           },
+           "max": {
+            "i": "2147483647"
+           }
+          },
+          "bitWidth": 32
+         }
+        ],
+        "sourceContext": {
+         "file": "./pokeapi.yaml",
+         "start": {
+          "line": 25,
+          "col": 16
+         },
+         "end": {
+          "line": 26,
+          "col": 8
+         }
+        }
+       },
+       "message": {
+        "primitive": "STRING",
+        "attrs": {
+         "json_tag": {
+          "s": "message"
+         }
+        },
+        "sourceContext": {
+         "file": "./pokeapi.yaml",
+         "start": {
+          "line": 27,
+          "col": 19
+         },
+         "end": {
+          "line": 29,
+          "col": 4
+         }
+        }
+       }
+      }
+     },
+     "sourceContext": {
+      "file": "./pokeapi.yaml",
+      "start": {
+       "line": 23,
+       "col": 4
+      },
+      "end": {
+       "line": 29,
+       "col": 4
+      }
+     }
+    },
+    "Pokemon": {
+     "tuple": {
+      "attrDefs": {
+       "height": {
+        "primitive": "INT",
+        "attrs": {
+         "json_tag": {
+          "s": "height"
+         }
+        },
+        "opt": true,
+        "sourceContext": {
+         "file": "./pokeapi.yaml",
+         "start": {
+          "line": 31,
+          "col": 18
+         },
+         "end": {
+          "line": 32,
+          "col": 8
+         }
+        }
+       },
+       "id": {
+        "primitive": "INT",
+        "attrs": {
+         "json_tag": {
+          "s": "id"
+         }
+        },
+        "opt": true,
+        "sourceContext": {
+         "file": "./pokeapi.yaml",
+         "start": {
+          "line": 33,
+          "col": 14
+         },
+         "end": {
+          "line": 34,
+          "col": 8
+         }
+        }
+       },
+       "name": {
+        "primitive": "STRING",
+        "attrs": {
+         "json_tag": {
+          "s": "name"
+         }
+        },
+        "opt": true,
+        "sourceContext": {
+         "file": "./pokeapi.yaml",
+         "start": {
+          "line": 35,
+          "col": 16
+         },
+         "end": {
+          "line": 36
+         }
+        }
+       }
+      }
+     },
+     "sourceContext": {
+      "file": "./pokeapi.yaml",
+      "start": {
+       "line": 29,
+       "col": 4
+      },
+      "end": {
+       "line": 36
+      }
+     }
+    }
+   },
+   "sourceContext": {
+    "file": "./pokeapi.yaml",
+    "start": {
+     "line": 7,
+     "col": 1
+    },
+    "end": {
+     "line": 7,
+     "col": 44
     }
    }
   }

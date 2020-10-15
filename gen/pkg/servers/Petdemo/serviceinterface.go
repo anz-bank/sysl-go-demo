@@ -8,6 +8,7 @@ import (
 	"github.com/anz-bank/sysl-go/config"
 
 	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/petstore"
+	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/pokeapi"
 )
 
 // DefaultPetdemoImpl ...
@@ -26,6 +27,11 @@ type GetPetListClient struct {
 		ctx context.Context,
 		req *petstore.GetPetListRequest,
 	) (*petstore.Pet, error)
+
+	PokeapiGetPokemon func(
+		ctx context.Context,
+		req *pokeapi.GetPokemonRequest,
+	) (*pokeapi.Pokemon, error)
 }
 
 // ServiceInterface for Petdemo
@@ -37,4 +43,5 @@ type ServiceInterface struct {
 type DownstreamConfig struct {
 	ContextTimeout time.Duration               `yaml:"contextTimeout"`
 	Petstore       config.CommonDownstreamData `yaml:"petstore"`
+	Pokeapi        config.CommonDownstreamData `yaml:"pokeapi"`
 }

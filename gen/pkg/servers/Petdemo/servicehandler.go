@@ -13,6 +13,7 @@ import (
 	"github.com/anz-bank/sysl-go/validator"
 
 	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/petstore"
+	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/pokeapi"
 )
 
 // Handler interface for Petdemo
@@ -25,6 +26,7 @@ type ServiceHandler struct {
 	genCallback      core.RestGenCallback
 	serviceInterface *ServiceInterface
 	petstoreService  petstore.Service
+	pokeapiService   pokeapi.Service
 }
 
 // NewServiceHandler for Petdemo
@@ -35,11 +37,13 @@ func NewServiceHandler(
 	genCallback core.RestGenCallback,
 	serviceInterface *ServiceInterface,
 	petstorePetstoreService petstore.Service,
+	pokeapiPokeapiService pokeapi.Service,
 ) (*ServiceHandler, error) {
 	return &ServiceHandler{
 		genCallback,
 		serviceInterface,
 		petstorePetstoreService,
+		pokeapiPokeapiService,
 	}, nil
 }
 
@@ -64,6 +68,7 @@ func (s *ServiceHandler) GetPetListHandler(w http.ResponseWriter, r *http.Reques
 
 	client := GetPetListClient{
 		PetstoreGetPetList: s.petstoreService.GetPetList,
+		PokeapiGetPokemon:  s.pokeapiService.GetPokemon,
 	}
 
 	defer func() {
