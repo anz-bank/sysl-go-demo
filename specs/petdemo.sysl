@@ -1,6 +1,6 @@
 # import downstream specifications
 import petstore.yaml as petstore.Petstore
-
+import pokeapi.yaml as pokeapi.PokeAPI
 
 
 Petdemo "Petdemo":
@@ -9,6 +9,7 @@ Petdemo "Petdemo":
         GET:
             | Get a random pet
             Petstore <- GET /pet
+            PokeAPI <- GET /pokemon/{id}
             return ok <: Pet
 
     !type Pet:
