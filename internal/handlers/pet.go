@@ -37,6 +37,7 @@ func GetRandomPetPicListRead(ctx context.Context,
 
 	// return the result
 	return &petdemo.Pet{
-		Breed: string(*pet) + *pokemon.Name,
+		Breed:   string(*pet),
+		Pokemon: *pokemon.Name,
 	}, nil
 }
