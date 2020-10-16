@@ -17,7 +17,8 @@ var _ = date.Parse
 
 // Pet ...
 type Pet struct {
-	Breed string `json:"breed"`
+	Breed   string `json:"breed"`
+	Pokemon string `json:"pokemon"`
 }
 
 // GetPetListRequest ...

@@ -91,6 +91,20 @@ const AppSpec = `{
           "col": 17
          }
         }
+       },
+       "pokemon": {
+        "primitive": "STRING",
+        "sourceContext": {
+         "file": "petdemo.sysl",
+         "start": {
+          "line": 17,
+          "col": 19
+         },
+         "end": {
+          "line": 17,
+          "col": 19
+         }
+        }
        }
       }
      },
@@ -101,7 +115,7 @@ const AppSpec = `{
        "col": 4
       },
       "end": {
-       "line": 18
+       "line": 19
       }
      }
     }
