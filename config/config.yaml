@@ -19,3 +19,6 @@ genCode:
     petstore:
       serviceURL: https://australia-southeast1-innate-rite-238510.cloudfunctions.net/pet-demo
       clientTimeout: 59s
+    pokeapi:
+      serviceURL: https://pokeapi.co/api/v2
+      clientTimeout: 59s 
