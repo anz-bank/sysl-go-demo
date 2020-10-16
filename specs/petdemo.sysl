@@ -9,7 +9,8 @@ Petdemo "Petdemo":
         GET:
             | Get a random pet
             Petstore <- GET /pet
-            PokeAPI <- GET /pokemon/{id}
+            if len(Pet) < 50:
+                PokeAPI <- GET /pokemon/{id}
             return ok <: Pet
 
     !type Pet:
