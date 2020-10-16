@@ -68,7 +68,8 @@ func (s *ServiceHandler) GetPetListHandler(w http.ResponseWriter, r *http.Reques
 
 	client := GetPetListClient{
 		PetstoreGetPetList: s.petstoreService.GetPetList,
-		PokeapiGetPokemon:  s.pokeapiService.GetPokemon,
+
+		PokeapiGetPokemon: s.pokeapiService.GetPokemon,
 	}
 
 	defer func() {

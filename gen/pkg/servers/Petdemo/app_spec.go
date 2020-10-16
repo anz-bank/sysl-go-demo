@@ -42,13 +42,20 @@ const AppSpec = `{
        }
       },
       {
-       "call": {
-        "target": {
-         "part": [
-          "PokeAPI"
-         ]
-        },
-        "endpoint": "GET /pokemon/{id}"
+       "cond": {
+        "test": "len(Pet) < 50",
+        "stmt": [
+         {
+          "call": {
+           "target": {
+            "part": [
+             "PokeAPI"
+            ]
+           },
+           "endpoint": "GET /pokemon/{id}"
+          }
+         }
+        ]
        }
       },
       {
@@ -68,7 +75,7 @@ const AppSpec = `{
        "col": 8
       },
       "end": {
-       "line": 15,
+       "line": 16,
        "col": 4
       }
      }
@@ -83,11 +90,11 @@ const AppSpec = `{
         "sourceContext": {
          "file": "petdemo.sysl",
          "start": {
-          "line": 16,
+          "line": 17,
           "col": 17
          },
          "end": {
-          "line": 16,
+          "line": 17,
           "col": 17
          }
         }
@@ -97,11 +104,11 @@ const AppSpec = `{
         "sourceContext": {
          "file": "petdemo.sysl",
          "start": {
-          "line": 17,
+          "line": 18,
           "col": 19
          },
          "end": {
-          "line": 17,
+          "line": 18,
           "col": 19
          }
         }
@@ -111,11 +118,11 @@ const AppSpec = `{
      "sourceContext": {
       "file": "petdemo.sysl",
       "start": {
-       "line": 15,
+       "line": 16,
        "col": 4
       },
       "end": {
-       "line": 19
+       "line": 20
       }
      }
     }
