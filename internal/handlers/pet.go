@@ -5,6 +5,7 @@ import (
 
 	petdemo "github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo"
 	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/petstore"
+	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/pokeapi"
 	"github.com/anz-bank/sysl-go/common"
 )
 
@@ -23,8 +24,19 @@ func GetRandomPetPicListRead(ctx context.Context,
 		return nil, err
 	}
 
+	// Set response encoding type to gzip
+	// This is required as only gzip encoding is currently supported by sysl-codegen
+	headers = common.RequestHeaderFromContext(ctx)
+	headers["Accept-Encoding"] = []string{"gzip"}
+
+	reqPokemon := pokeapi.GetPokemonRequest{ID: int64(len(*pet))}
+	pokemon, err := client.PokeapiGetPokemon(ctx, &reqPokemon)
+	if err != nil {
+		return nil, err
+	}
+
 	// return the result
 	return &petdemo.Pet{
-		Breed: string(*pet),
+		Breed: string(*pet) + *pokemon.Name,
 	}, nil
 }
