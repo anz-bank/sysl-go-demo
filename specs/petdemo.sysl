@@ -14,4 +14,5 @@ Petdemo "Petdemo":
 
     !type Pet:
         breed <: string
+        pokemon <: string
 
