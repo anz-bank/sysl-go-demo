@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions-contrib/golangci-lint@v1
+      - uses: golangci/golangci-lint-action@v2
         env:
           GO111MODULE: "on"
 

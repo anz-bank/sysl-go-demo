@@ -3,9 +3,9 @@ package handlers
 import (
 	"context"
 
-	petdemo "github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo"
-	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/petstore"
-	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/pokeapi"
+	petdemo "github.com/anz-bank/sysl-go-demo/internal/gen/pkg/servers/Petdemo"
+	"github.com/anz-bank/sysl-go-demo/internal/gen/pkg/servers/Petdemo/petstore"
+	"github.com/anz-bank/sysl-go-demo/internal/gen/pkg/servers/Petdemo/pokeapi"
 	"github.com/anz-bank/sysl-go/common"
 )
 

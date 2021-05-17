@@ -50,9 +50,13 @@ ifndef PKGPATH
 PKGPATH = $(shell awk '/^module/{print$$2}' go.mod)
 endif
 
-SERVERS_ROOT = gen/pkg/servers
+ifndef TEMPLATE
+TEMPLATE = $(SYSL_GO_ROOT)/codegen/arrai/auto/auto.arrai
+endif
+
+SERVERS_ROOT = internal/gen/pkg/servers
 DOCKER = docker
-AUTO = --out=dir:. $(SYSL_GO_ROOT)/codegen/arrai/auto/auto.arrai
+AUTO = --out=dir:. $(TEMPLATE)
 
 ifdef NO_DOCKER
 
@@ -61,14 +65,21 @@ SYSL      = sysl
 GOIMPORTS = goimports
 AUTOGEN   = arrai $(AUTO)
 ifndef SYSL_GO_ROOT
-$(error Set SYSL_GO_ROOT is required for NO_DOCKER. Set it to the local path of the sysl-go repo.)
+SYSL_GO_ROOT = $(shell go list -m -f '{{.Dir}}' github.com/anz-bank/sysl-go)
+ifeq ($(SYSL_GO_ROOT),)
+$(error Failed to determine the path of the sysl-go repo, set SYSL_GO_ROOT to the local path)
+endif
 endif
 
 else
 
 SYSL_GO_ROOT = /sysl-go
-SYSL_GO_IMAGE = anzbank/sysl-go:v0.106.0
-DOCKER_RUN = $(DOCKER) run --rm -v $$(pwd):/work -w /work
+SYSL_GO_VERSION = $(shell go list -m -f '{{.Version}}' github.com/anz-bank/sysl-go)
+ifeq ($(SYSL_GO_VERSION),)
+$(error Failed to determine the version for github.com/anz-bank/sysl-go)
+endif
+SYSL_GO_IMAGE = anzbank/sysl-go:${SYSL_GO_VERSION}
+DOCKER_RUN = $(DOCKER) run --rm -t -v $$(pwd):/work -w /work
 PROTOC    = $(DOCKER_RUN) anzbank/protoc-gen-sysl:v0.0.24
 SYSL      = $(DOCKER_RUN) --entrypoint sysl $(SYSL_GO_IMAGE)
 AUTOGEN   = $(DOCKER_RUN) --entrypoint arrai $(SYSL_GO_IMAGE) $(AUTO)
@@ -77,13 +88,19 @@ GOIMPORTS = $(DOCKER_RUN) --entrypoint goimports $(SYSL_GO_IMAGE)
 endif
 
 .PHONY: all
-all: $(foreach app,$(SYSLGO_PACKAGES),$(SERVERS_ROOT)/$(app))
+all: gen-all-servers
+
+.PHONY: gen-all-servers
+gen-all-servers: $(foreach app,$(SYSLGO_PACKAGES),$(SERVERS_ROOT)/$(app))
 
 .INTERMEDIATE: model.json
 model.json: $(SYSLGO_SYSL)
-	$(SYSL) pb --mode json $< > $@ || (rm $@ && false)
+	# note: if we use > $@ here then if we are running inside a
+	# terminal, then sysl pb detects that and logs warnings
+	# to stdout which pollute our JSON output. So use --output $@.
+	$(SYSL) pb --mode json --root . $< --output $@ || (rm $@ && false)
 
-$(SERVERS_ROOT)/%: model.json
+$(SERVERS_ROOT)/%: model.json codegen.mk
 	$(AUTOGEN) $* $(PKGPATH) $@ $< $(or $(SYSLGO_APP.$*),$*) =
 	find $@ -type d | xargs $(GOIMPORTS) -w
 	touch $@

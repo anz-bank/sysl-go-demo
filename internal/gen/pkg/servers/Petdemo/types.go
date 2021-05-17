@@ -2,23 +2,13 @@
 package petdemo
 
 import (
-	"time"
-
 	"github.com/anz-bank/sysl-go/validator"
-
-	"github.com/rickb777/date"
 )
-
-// Reference imports to suppress unused errors
-var _ = time.Parse
-
-// Reference imports to suppress unused errors
-var _ = date.Parse
 
 // Pet ...
 type Pet struct {
-	Breed   string `json:"breed"`
-	Pokemon string `json:"pokemon"`
+	Breed   string `json:"breed" url:"breed"`
+	Pokemon string `json:"pokemon" url:"pokemon"`
 }
 
 // GetPetListRequest ...

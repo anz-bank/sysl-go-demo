@@ -7,13 +7,13 @@ import (
 	"net/http"
 
 	"github.com/anz-bank/sysl-go/common"
-	"github.com/anz-bank/sysl-go/config"
 	"github.com/anz-bank/sysl-go/core"
+	"github.com/anz-bank/sysl-go/core/authrules"
 	"github.com/anz-bank/sysl-go/restlib"
 	"github.com/anz-bank/sysl-go/validator"
 
-	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/petstore"
-	"github.com/anz-bank/sysl-go-demo/gen/pkg/servers/Petdemo/pokeapi"
+	"github.com/anz-bank/sysl-go-demo/internal/gen/pkg/servers/Petdemo/petstore"
+	"github.com/anz-bank/sysl-go-demo/internal/gen/pkg/servers/Petdemo/pokeapi"
 )
 
 // Handler interface for Petdemo
@@ -23,25 +23,29 @@ type Handler interface {
 
 // ServiceHandler for Petdemo API
 type ServiceHandler struct {
-	genCallback      core.RestGenCallback
-	serviceInterface *ServiceInterface
-	petstoreService  petstore.Service
-	pokeapiService   pokeapi.Service
+	genCallback        core.RestGenCallback
+	serviceInterface   *ServiceInterface
+	authorizationRules map[string]authrules.Rule
+	petstoreService    petstore.Service
+	pokeapiService     pokeapi.Service
 }
 
 // NewServiceHandler for Petdemo
 func NewServiceHandler(
 	ctx context.Context,
-	cfg *config.DefaultConfig,
 	hooks *core.Hooks,
 	genCallback core.RestGenCallback,
 	serviceInterface *ServiceInterface,
 	petstorePetstoreService petstore.Service,
 	pokeapiPokeapiService pokeapi.Service,
 ) (*ServiceHandler, error) {
+
+	authorizationRules := make(map[string]authrules.Rule)
+
 	return &ServiceHandler{
 		genCallback,
 		serviceInterface,
+		authorizationRules,
 		petstorePetstoreService,
 		pokeapiPokeapiService,
 	}, nil
@@ -87,6 +91,18 @@ func (s *ServiceHandler) GetPetListHandler(w http.ResponseWriter, r *http.Reques
 	pet, err := s.serviceInterface.GetPetList(ctx, &req, client)
 	if err != nil {
 		common.HandleError(ctx, w, common.InternalError, "Handler error", err, s.genCallback.MapError)
+		return
+	}
+
+	valErr = validator.Validate(pet)
+	if valErr != nil {
+		// Regard an invalid response object as an internal error.
+		// To permit an endpoint to return invalid response objects, annotate the
+		// endpoint with permit_invalid_response:
+		//
+		// App:
+		//   /pet [~permit_invalid_response]
+		common.HandleError(ctx, w, common.InternalError, "Invalid response", valErr, s.genCallback.MapError)
 		return
 	}
 

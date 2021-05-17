@@ -2,23 +2,21 @@
 package petstore
 
 import (
-	"time"
+	"fmt"
 
 	"github.com/anz-bank/sysl-go/validator"
-
-	"github.com/rickb777/date"
 )
-
-// Reference imports to suppress unused errors
-var _ = time.Parse
-
-// Reference imports to suppress unused errors
-var _ = date.Parse
 
 // Error_ ...
 type Error_ struct {
-	Code    int64  `json:"code"`
-	Message string `json:"message"`
+	Code    int64  `json:"code" url:"code"`
+	Message string `json:"message" url:"message"`
+}
+
+// Error fulfills the error interface.
+func (s Error_) Error() string {
+	type plain Error_
+	return fmt.Sprintf("%+v", plain(s))
 }
 
 // GetPetListRequest ...

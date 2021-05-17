@@ -13,7 +13,7 @@ genCode:
       writeTimeout: 120s
       common:
         hostName: ""
-        port: 6060
+        port: 8080
   downstream:
     contextTimeout: 120s
     petstore:
