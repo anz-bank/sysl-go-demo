@@ -33,10 +33,18 @@ docker build -t docker_petdemo -f Dockerfile .
 
 ## Running the application in a Docker container
 
-o run the application inside the container, you need to prepare an
+To run the application inside the container, you need to prepare an
 application config file. Assuming you have an application config file
 present as `config.yaml`, the containerised application can be run as:
 
 ```sh
 docker run --rm -t -p 8080:8080 --mount type=bind,source="$PWD"/config/config.yaml,target=/app/config.yaml,readonly docker_petdemo:latest /bin/Petdemo /app/config.yaml
+```
+
+## Connecting to the application
+
+To connect to the application, navigate to http://localhost:8080/pet in your browser or use the following curl command:
+
+```sh
+curl http://localhost:8080/pet
 ```

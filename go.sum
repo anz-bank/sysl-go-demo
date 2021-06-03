@@ -59,8 +59,8 @@ github.com/anz-bank/go-pkcs12 v0.2.0 h1:1Xj0H/fT2KWlTq6Ro/2wwkPVDMd40sF+hREvbfIi
 github.com/anz-bank/go-pkcs12 v0.2.0/go.mod h1:O+b5w1AozX79iJAa14TRdxHrOZuoZqnohKvTyjx9RjE=
 github.com/anz-bank/pkg v0.0.35 h1:P9OLveU8MWWClkdM11QhCMXfzJ8XjQqjeBika1TZ9H4=
 github.com/anz-bank/pkg v0.0.35/go.mod h1:OVnP/39mL3dOEBRq5/5Wwwz2PjatCUwIF384RttxQI8=
-github.com/anz-bank/sysl-go v0.194.0 h1:WbOcSgyCkRYhT1ydcLPGkd2NTvAy5xjPXQUAeR9q/UU=
-github.com/anz-bank/sysl-go v0.194.0/go.mod h1:E4VjyQFAzdLJe7Vi/YmvsTwqyNK4hSSC+ut4PW/Na1c=
+github.com/anz-bank/sysl-go v0.199.0 h1:PPMVSb7EAYFaB9HxRF2Ah/H6WbPvTn9+70qJH6MIUok=
+github.com/anz-bank/sysl-go v0.199.0/go.mod h1:E4VjyQFAzdLJe7Vi/YmvsTwqyNK4hSSC+ut4PW/Na1c=
 github.com/apache/thrift v0.12.0/go.mod h1:cp2SuWMxlEZw2r+iP2GNCdIi4C1qmUzdZFSVb+bacwQ=
 github.com/apache/thrift v0.13.0/go.mod h1:cp2SuWMxlEZw2r+iP2GNCdIi4C1qmUzdZFSVb+bacwQ=
 github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e/go.mod h1:3U/XgcO3hCbHZ8TKRvWD2dDTCfh9M9ya+I9JpbB7O8o=
