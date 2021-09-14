@@ -29,4 +29,4 @@ func (s *Error_) Validate() error {
 }
 
 // Pet ...
-type Pet string
+type Pet = string

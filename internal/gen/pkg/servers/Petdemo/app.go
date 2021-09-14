@@ -3,7 +3,12 @@ package petdemo
 
 import (
 	"context"
+	"fmt"
 	"log"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
 	"github.com/anz-bank/sysl-go/common"
 	"github.com/anz-bank/sysl-go/config"
@@ -28,7 +33,7 @@ func BuildDownstreamClients(ctx context.Context, hooks *core.Hooks) (*Downstream
 		downstreamConfig = &DownstreamConfig{}
 	}
 	var err error
-	petstoreHTTPClient, err := core.BuildDownstreamHTTPClient(
+	petstoreHTTPClient, petstoreHTTPURL, err := core.BuildDownstreamHTTPClient(
 		ctx,
 		"petstore",
 		hooks,
@@ -39,11 +44,11 @@ func BuildDownstreamClients(ctx context.Context, hooks *core.Hooks) (*Downstream
 	}
 	petstoreClient := &petstore.Client{
 		Client:  petstoreHTTPClient,
-		URL:     downstreamConfig.Petstore.ServiceURL,
+		URL:     petstoreHTTPURL,
 		Headers: downstreamConfig.Petstore.Headers,
 	}
 
-	pokeapiHTTPClient, err := core.BuildDownstreamHTTPClient(
+	pokeapiHTTPClient, pokeapiHTTPURL, err := core.BuildDownstreamHTTPClient(
 		ctx,
 		"pokeapi",
 		hooks,
@@ -54,7 +59,7 @@ func BuildDownstreamClients(ctx context.Context, hooks *core.Hooks) (*Downstream
 	}
 	pokeapiClient := &pokeapi.Client{
 		Client:  pokeapiHTTPClient,
-		URL:     downstreamConfig.Pokeapi.ServiceURL,
+		URL:     pokeapiHTTPURL,
 		Headers: downstreamConfig.Pokeapi.Headers,
 	}
 
@@ -84,8 +89,27 @@ func Serve(
 	case core.ErrDisplayHelp:
 		return
 	case nil:
-		err = srv.Start()
+		signalChan := make(chan os.Signal, 1)
+		signal.Notify(signalChan, syscall.SIGINT, syscall.SIGTERM)
+
+		errChan := make(chan error, 1)
+		go func() {
+			defer func() {
+				if r := recover(); r != nil {
+					errChan <- fmt.Errorf("Server panic: %v", r)
+				}
+			}()
+
+			errChan <- srv.Start()
+		}()
+
+		select {
+		case <-signalChan:
+			err = srv.GracefulStop()
+		case err = <-errChan:
+		}
 	}
+
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -120,9 +144,9 @@ func NewServer(
 
 			var downstream *DownstreamConfig
 			var is bool
-			if downstream, is = cfg.GenCode.Downstream.(*DownstreamConfig); !is {
+			if downstream, is = cfg.GenCode.Downstream.(*DownstreamConfig); !is || downstream == nil {
 				downstream = &DownstreamConfig{
-					ContextTimeout: 30,
+					ContextTimeout: 30 * time.Second,
 				}
 			}
 
