@@ -12,31 +12,7 @@ const AppSpec = `{
    "longName": "Petdemo",
    "attrs": {
     "package": {
-     "s": "Petdemo",
-     "sourceContext": {
-      "file": "specs/petdemo.sysl",
-      "start": {
-       "line": 6,
-       "col": 13
-      },
-      "end": {
-       "line": 6,
-       "col": 22
-      }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/petdemo.sysl",
-       "start": {
-        "line": 6,
-        "col": 13
-       },
-       "end": {
-        "line": 6,
-        "col": 22
-       }
-      }
-     ]
+     "s": "Petdemo"
     }
    },
    "endpoints": {
@@ -67,27 +43,14 @@ const AppSpec = `{
        "sourceContext": {
         "file": "specs/petdemo.sysl",
         "start": {
-         "line": 10,
+         "line": 11,
          "col": 12
         },
         "end": {
-         "line": 10,
-         "col": 32
+         "line": 11,
+         "col": 24
         }
-       },
-       "sourceContexts": [
-        {
-         "file": "specs/petdemo.sysl",
-         "start": {
-          "line": 10,
-          "col": 12
-         },
-         "end": {
-          "line": 10,
-          "col": 32
-         }
-        }
-       ]
+       }
       },
       {
        "cond": {
@@ -105,54 +68,28 @@ const AppSpec = `{
           "sourceContext": {
            "file": "specs/petdemo.sysl",
            "start": {
-            "line": 12,
+            "line": 13,
             "col": 16
            },
            "end": {
-            "line": 12,
-            "col": 44
+            "line": 13,
+            "col": 27
            }
-          },
-          "sourceContexts": [
-           {
-            "file": "specs/petdemo.sysl",
-            "start": {
-             "line": 12,
-             "col": 16
-            },
-            "end": {
-             "line": 12,
-             "col": 44
-            }
-           }
-          ]
+          }
          }
         ]
        },
        "sourceContext": {
         "file": "specs/petdemo.sysl",
         "start": {
-         "line": 11,
+         "line": 12,
          "col": 12
         },
         "end": {
-         "line": 13,
-         "col": 13
+         "line": 14,
+         "col": 12
         }
-       },
-       "sourceContexts": [
-        {
-         "file": "specs/petdemo.sysl",
-         "start": {
-          "line": 11,
-          "col": 12
-         },
-         "end": {
-          "line": 13,
-          "col": 13
-         }
-        }
-       ]
+       }
       },
       {
        "ret": {
@@ -161,27 +98,14 @@ const AppSpec = `{
        "sourceContext": {
         "file": "specs/petdemo.sysl",
         "start": {
-         "line": 13,
+         "line": 14,
          "col": 12
         },
         "end": {
-         "line": 13,
-         "col": 28
+         "line": 14,
+         "col": 18
         }
-       },
-       "sourceContexts": [
-        {
-         "file": "specs/petdemo.sysl",
-         "start": {
-          "line": 13,
-          "col": 12
-         },
-         "end": {
-          "line": 13,
-          "col": 28
-         }
-        }
-       ]
+       }
       }
      ],
      "restParams": {
@@ -191,27 +115,14 @@ const AppSpec = `{
      "sourceContext": {
       "file": "specs/petdemo.sysl",
       "start": {
-       "line": 8,
+       "line": 9,
        "col": 8
       },
       "end": {
-       "line": 15,
-       "col": 5
+       "line": 16,
+       "col": 4
       }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/petdemo.sysl",
-       "start": {
-        "line": 8,
-        "col": 8
-       },
-       "end": {
-        "line": 15,
-        "col": 5
-       }
-      }
-     ]
+     }
     }
    },
    "types": {
@@ -223,105 +134,54 @@ const AppSpec = `{
         "sourceContext": {
          "file": "specs/petdemo.sysl",
          "start": {
-          "line": 16,
-          "col": 8
+          "line": 17,
+          "col": 17
          },
          "end": {
-          "line": 16,
-          "col": 23
+          "line": 17,
+          "col": 17
          }
-        },
-        "sourceContexts": [
-         {
-          "file": "specs/petdemo.sysl",
-          "start": {
-           "line": 16,
-           "col": 8
-          },
-          "end": {
-           "line": 16,
-           "col": 23
-          }
-         }
-        ]
+        }
        },
        "pokemon": {
         "primitive": "STRING",
         "sourceContext": {
          "file": "specs/petdemo.sysl",
          "start": {
-          "line": 17,
-          "col": 8
+          "line": 18,
+          "col": 19
          },
          "end": {
-          "line": 17,
-          "col": 25
+          "line": 18,
+          "col": 19
          }
-        },
-        "sourceContexts": [
-         {
-          "file": "specs/petdemo.sysl",
-          "start": {
-           "line": 17,
-           "col": 8
-          },
-          "end": {
-           "line": 17,
-           "col": 25
-          }
-         }
-        ]
+        }
        }
       }
      },
      "sourceContext": {
       "file": "specs/petdemo.sysl",
       "start": {
-       "line": 15,
+       "line": 16,
        "col": 4
       },
       "end": {
-       "line": 17,
-       "col": 25
+       "line": 20
       }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/petdemo.sysl",
-       "start": {
-        "line": 15,
-        "col": 4
-       },
-       "end": {
-        "line": 17,
-        "col": 25
-       }
-      }
-     ]
+     }
     }
    },
    "sourceContext": {
     "file": "specs/petdemo.sysl",
     "start": {
-     "line": 5
+     "line": 6,
+     "col": 1
     },
     "end": {
-     "line": 17,
-     "col": 25
+     "line": 6,
+     "col": 8
     }
-   },
-   "sourceContexts": [
-    {
-     "file": "specs/petdemo.sysl",
-     "start": {
-      "line": 5
-     },
-     "end": {
-      "line": 17,
-      "col": 25
-     }
-    }
-   ]
+   }
   },
   "Petstore": {
    "name": {
@@ -332,139 +192,19 @@ const AppSpec = `{
    "longName": "Pet Service",
    "attrs": {
     "description": {
-     "s": "No description.\n",
-     "sourceContext": {
-      "file": "specs/petstore.yaml",
-      "start": {
-       "line": 10,
-       "col": 18
-      },
-      "end": {
-       "line": 13,
-       "col": 5
-      }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/petstore.yaml",
-       "start": {
-        "line": 10,
-        "col": 18
-       },
-       "end": {
-        "line": 13,
-        "col": 5
-       }
-      }
-     ]
+     "s": "No description.\n"
     },
     "host": {
-     "s": "australia-southeast1-innate-rite-238510.cloudfunctions.net",
-     "sourceContext": {
-      "file": "specs/petstore.yaml",
-      "start": {
-       "line": 9,
-       "col": 12
-      },
-      "end": {
-       "line": 9,
-       "col": 72
-      }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/petstore.yaml",
-       "start": {
-        "line": 9,
-        "col": 12
-       },
-       "end": {
-        "line": 9,
-        "col": 72
-       }
-      }
-     ]
+     "s": "australia-southeast1-innate-rite-238510.cloudfunctions.net"
     },
     "license": {
-     "s": "MIT",
-     "sourceContext": {
-      "file": "specs/petstore.yaml",
-      "start": {
-       "line": 8,
-       "col": 15
-      },
-      "end": {
-       "line": 8,
-       "col": 20
-      }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/petstore.yaml",
-       "start": {
-        "line": 8,
-        "col": 15
-       },
-       "end": {
-        "line": 8,
-        "col": 20
-       }
-      }
-     ]
+     "s": "MIT"
     },
     "package": {
-     "s": "petstore",
-     "sourceContext": {
-      "file": "specs/petstore.yaml",
-      "start": {
-       "line": 6,
-       "col": 32
-      },
-      "end": {
-       "line": 6,
-       "col": 42
-      }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/petstore.yaml",
-       "start": {
-        "line": 6,
-        "col": 32
-       },
-       "end": {
-        "line": 6,
-        "col": 42
-       }
-      }
-     ]
+     "s": "petstore"
     },
     "version": {
-     "s": "1.0.0",
-     "sourceContext": {
-      "file": "specs/petstore.yaml",
-      "start": {
-       "line": 7,
-       "col": 15
-      },
-      "end": {
-       "line": 7,
-       "col": 22
-      }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/petstore.yaml",
-       "start": {
-        "line": 7,
-        "col": 15
-       },
-       "end": {
-        "line": 7,
-        "col": 22
-       }
-      }
-     ]
+     "s": "1.0.0"
     }
    },
    "endpoints": {
@@ -485,61 +225,35 @@ const AppSpec = `{
      "stmt": [
       {
        "ret": {
-        "payload": "200 <: Pet [mediatype=\"application/json\"]"
+        "payload": "error <: Error"
        },
        "sourceContext": {
         "file": "specs/petstore.yaml",
         "start": {
-         "line": 16,
+         "line": 17,
          "col": 12
         },
         "end": {
-         "line": 16,
-         "col": 60
+         "line": 17,
+         "col": 18
         }
-       },
-       "sourceContexts": [
-        {
-         "file": "specs/petstore.yaml",
-         "start": {
-          "line": 16,
-          "col": 12
-         },
-         "end": {
-          "line": 16,
-          "col": 60
-         }
-        }
-       ]
+       }
       },
       {
        "ret": {
-        "payload": "error <: Error [mediatype=\"application/json\"]"
+        "payload": "ok <: Pet"
        },
        "sourceContext": {
         "file": "specs/petstore.yaml",
         "start": {
-         "line": 17,
+         "line": 18,
          "col": 12
         },
         "end": {
-         "line": 17,
-         "col": 64
+         "line": 18,
+         "col": 18
         }
-       },
-       "sourceContexts": [
-        {
-         "file": "specs/petstore.yaml",
-         "start": {
-          "line": 17,
-          "col": 12
-         },
-         "end": {
-          "line": 17,
-          "col": 64
-         }
-        }
-       ]
+       }
       }
      ],
      "restParams": {
@@ -549,27 +263,14 @@ const AppSpec = `{
      "sourceContext": {
       "file": "specs/petstore.yaml",
       "start": {
-       "line": 14,
+       "line": 15,
        "col": 8
       },
       "end": {
-       "line": 22,
-       "col": 5
+       "line": 23,
+       "col": 4
       }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/petstore.yaml",
-       "start": {
-        "line": 14,
-        "col": 8
-       },
-       "end": {
-        "line": 22,
-        "col": 5
-       }
-      }
-     ]
+     }
     }
    },
    "types": {
@@ -580,31 +281,7 @@ const AppSpec = `{
         "primitive": "INT",
         "attrs": {
          "json_tag": {
-          "s": "code",
-          "sourceContext": {
-           "file": "specs/petstore.yaml",
-           "start": {
-            "line": 24,
-            "col": 24
-           },
-           "end": {
-            "line": 24,
-            "col": 30
-           }
-          },
-          "sourceContexts": [
-           {
-            "file": "specs/petstore.yaml",
-            "start": {
-             "line": 24,
-             "col": 24
-            },
-            "end": {
-             "line": 24,
-             "col": 30
-            }
-           }
-          ]
+          "s": "code"
          }
         },
         "constraint": [
@@ -623,161 +300,73 @@ const AppSpec = `{
         "sourceContext": {
          "file": "specs/petstore.yaml",
          "start": {
-          "line": 23,
-          "col": 8
+          "line": 25,
+          "col": 16
          },
          "end": {
-          "line": 25,
-          "col": 9
+          "line": 26,
+          "col": 8
          }
-        },
-        "sourceContexts": [
-         {
-          "file": "specs/petstore.yaml",
-          "start": {
-           "line": 23,
-           "col": 8
-          },
-          "end": {
-           "line": 25,
-           "col": 9
-          }
-         }
-        ]
+        }
        },
        "message": {
         "primitive": "STRING",
         "attrs": {
          "json_tag": {
-          "s": "message",
-          "sourceContext": {
-           "file": "specs/petstore.yaml",
-           "start": {
-            "line": 26,
-            "col": 24
-           },
-           "end": {
-            "line": 26,
-            "col": 33
-           }
-          },
-          "sourceContexts": [
-           {
-            "file": "specs/petstore.yaml",
-            "start": {
-             "line": 26,
-             "col": 24
-            },
-            "end": {
-             "line": 26,
-             "col": 33
-            }
-           }
-          ]
+          "s": "message"
          }
         },
         "sourceContext": {
          "file": "specs/petstore.yaml",
          "start": {
-          "line": 25,
-          "col": 8
+          "line": 27,
+          "col": 19
          },
          "end": {
-          "line": 28,
-          "col": 5
+          "line": 29,
+          "col": 4
          }
-        },
-        "sourceContexts": [
-         {
-          "file": "specs/petstore.yaml",
-          "start": {
-           "line": 25,
-           "col": 8
-          },
-          "end": {
-           "line": 28,
-           "col": 5
-          }
-         }
-        ]
+        }
        }
       }
      },
      "sourceContext": {
       "file": "specs/petstore.yaml",
       "start": {
-       "line": 22,
+       "line": 23,
        "col": 4
       },
       "end": {
-       "line": 26,
-       "col": 33
+       "line": 29,
+       "col": 4
       }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/petstore.yaml",
-       "start": {
-        "line": 22,
-        "col": 4
-       },
-       "end": {
-        "line": 26,
-        "col": 33
-       }
-      }
-     ]
+     }
     },
     "Pet": {
      "primitive": "STRING",
      "sourceContext": {
       "file": "specs/petstore.yaml",
       "start": {
-       "line": 28,
+       "line": 29,
        "col": 4
       },
       "end": {
-       "line": 30,
-       "col": 1
+       "line": 31
       }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/petstore.yaml",
-       "start": {
-        "line": 28,
-        "col": 4
-       },
-       "end": {
-        "line": 30,
-        "col": 1
-       }
-      }
-     ]
+     }
     }
    },
    "sourceContext": {
     "file": "specs/petstore.yaml",
     "start": {
-     "line": 6
+     "line": 7,
+     "col": 1
     },
     "end": {
-     "line": 30,
-     "col": 1
+     "line": 7,
+     "col": 42
     }
-   },
-   "sourceContexts": [
-    {
-     "file": "specs/petstore.yaml",
-     "start": {
-      "line": 6
-     },
-     "end": {
-      "line": 30,
-      "col": 1
-     }
-    }
-   ]
+   }
   },
   "PokeAPI": {
    "name": {
@@ -788,139 +377,19 @@ const AppSpec = `{
    "longName": "PokeAPI Service",
    "attrs": {
     "description": {
-     "s": "No description.\n",
-     "sourceContext": {
-      "file": "specs/pokeapi.yaml",
-      "start": {
-       "line": 10,
-       "col": 18
-      },
-      "end": {
-       "line": 13,
-       "col": 5
-      }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/pokeapi.yaml",
-       "start": {
-        "line": 10,
-        "col": 18
-       },
-       "end": {
-        "line": 13,
-        "col": 5
-       }
-      }
-     ]
+     "s": "No description.\n"
     },
     "host": {
-     "s": "pokeapi.co",
-     "sourceContext": {
-      "file": "specs/pokeapi.yaml",
-      "start": {
-       "line": 9,
-       "col": 12
-      },
-      "end": {
-       "line": 9,
-       "col": 24
-      }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/pokeapi.yaml",
-       "start": {
-        "line": 9,
-        "col": 12
-       },
-       "end": {
-        "line": 9,
-        "col": 24
-       }
-      }
-     ]
+     "s": "pokeapi.co"
     },
     "license": {
-     "s": "MIT",
-     "sourceContext": {
-      "file": "specs/pokeapi.yaml",
-      "start": {
-       "line": 8,
-       "col": 15
-      },
-      "end": {
-       "line": 8,
-       "col": 20
-      }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/pokeapi.yaml",
-       "start": {
-        "line": 8,
-        "col": 15
-       },
-       "end": {
-        "line": 8,
-        "col": 20
-       }
-      }
-     ]
+     "s": "MIT"
     },
     "package": {
-     "s": "pokeapi",
-     "sourceContext": {
-      "file": "specs/pokeapi.yaml",
-      "start": {
-       "line": 6,
-       "col": 35
-      },
-      "end": {
-       "line": 6,
-       "col": 44
-      }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/pokeapi.yaml",
-       "start": {
-        "line": 6,
-        "col": 35
-       },
-       "end": {
-        "line": 6,
-        "col": 44
-       }
-      }
-     ]
+     "s": "pokeapi"
     },
     "version": {
-     "s": "1.0.0",
-     "sourceContext": {
-      "file": "specs/pokeapi.yaml",
-      "start": {
-       "line": 7,
-       "col": 15
-      },
-      "end": {
-       "line": 7,
-       "col": 22
-      }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/pokeapi.yaml",
-       "start": {
-        "line": 7,
-        "col": 15
-       },
-       "end": {
-        "line": 7,
-        "col": 22
-       }
-      }
-     ]
+     "s": "1.0.0"
     }
    },
    "endpoints": {
@@ -941,61 +410,35 @@ const AppSpec = `{
      "stmt": [
       {
        "ret": {
-        "payload": "200 <: Pokemon [mediatype=\"application/json\"]"
+        "payload": "error <: Error"
        },
        "sourceContext": {
         "file": "specs/pokeapi.yaml",
         "start": {
-         "line": 16,
+         "line": 17,
          "col": 12
         },
         "end": {
-         "line": 16,
-         "col": 64
+         "line": 17,
+         "col": 18
         }
-       },
-       "sourceContexts": [
-        {
-         "file": "specs/pokeapi.yaml",
-         "start": {
-          "line": 16,
-          "col": 12
-         },
-         "end": {
-          "line": 16,
-          "col": 64
-         }
-        }
-       ]
+       }
       },
       {
        "ret": {
-        "payload": "error <: Error [mediatype=\"application/json\"]"
+        "payload": "ok <: Pokemon"
        },
        "sourceContext": {
         "file": "specs/pokeapi.yaml",
         "start": {
-         "line": 17,
+         "line": 18,
          "col": 12
         },
         "end": {
-         "line": 17,
-         "col": 64
+         "line": 18,
+         "col": 18
         }
-       },
-       "sourceContexts": [
-        {
-         "file": "specs/pokeapi.yaml",
-         "start": {
-          "line": 17,
-          "col": 12
-         },
-         "end": {
-          "line": 17,
-          "col": 64
-         }
-        }
-       ]
+       }
       }
      ],
      "restParams": {
@@ -1009,27 +452,14 @@ const AppSpec = `{
          "sourceContext": {
           "file": "specs/pokeapi.yaml",
           "start": {
-           "line": 13,
+           "line": 14,
            "col": 13
           },
           "end": {
-           "line": 13,
-           "col": 22
+           "line": 14,
+           "col": 21
           }
-         },
-         "sourceContexts": [
-          {
-           "file": "specs/pokeapi.yaml",
-           "start": {
-            "line": 13,
-            "col": 13
-           },
-           "end": {
-            "line": 13,
-            "col": 22
-           }
-          }
-         ]
+         }
         }
        }
       ]
@@ -1037,27 +467,14 @@ const AppSpec = `{
      "sourceContext": {
       "file": "specs/pokeapi.yaml",
       "start": {
-       "line": 14,
+       "line": 15,
        "col": 8
       },
       "end": {
-       "line": 22,
-       "col": 5
+       "line": 23,
+       "col": 4
       }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/pokeapi.yaml",
-       "start": {
-        "line": 14,
-        "col": 8
-       },
-       "end": {
-        "line": 22,
-        "col": 5
-       }
-      }
-     ]
+     }
     }
    },
    "types": {
@@ -1068,31 +485,7 @@ const AppSpec = `{
         "primitive": "INT",
         "attrs": {
          "json_tag": {
-          "s": "code",
-          "sourceContext": {
-           "file": "specs/pokeapi.yaml",
-           "start": {
-            "line": 24,
-            "col": 24
-           },
-           "end": {
-            "line": 24,
-            "col": 30
-           }
-          },
-          "sourceContexts": [
-           {
-            "file": "specs/pokeapi.yaml",
-            "start": {
-             "line": 24,
-             "col": 24
-            },
-            "end": {
-             "line": 24,
-             "col": 30
-            }
-           }
-          ]
+          "s": "code"
          }
         },
         "constraint": [
@@ -1111,110 +504,47 @@ const AppSpec = `{
         "sourceContext": {
          "file": "specs/pokeapi.yaml",
          "start": {
-          "line": 23,
-          "col": 8
+          "line": 25,
+          "col": 16
          },
          "end": {
-          "line": 25,
-          "col": 9
+          "line": 26,
+          "col": 8
          }
-        },
-        "sourceContexts": [
-         {
-          "file": "specs/pokeapi.yaml",
-          "start": {
-           "line": 23,
-           "col": 8
-          },
-          "end": {
-           "line": 25,
-           "col": 9
-          }
-         }
-        ]
+        }
        },
        "message": {
         "primitive": "STRING",
         "attrs": {
          "json_tag": {
-          "s": "message",
-          "sourceContext": {
-           "file": "specs/pokeapi.yaml",
-           "start": {
-            "line": 26,
-            "col": 24
-           },
-           "end": {
-            "line": 26,
-            "col": 33
-           }
-          },
-          "sourceContexts": [
-           {
-            "file": "specs/pokeapi.yaml",
-            "start": {
-             "line": 26,
-             "col": 24
-            },
-            "end": {
-             "line": 26,
-             "col": 33
-            }
-           }
-          ]
+          "s": "message"
          }
         },
         "sourceContext": {
          "file": "specs/pokeapi.yaml",
          "start": {
-          "line": 25,
-          "col": 8
+          "line": 27,
+          "col": 19
          },
          "end": {
-          "line": 28,
-          "col": 5
+          "line": 29,
+          "col": 4
          }
-        },
-        "sourceContexts": [
-         {
-          "file": "specs/pokeapi.yaml",
-          "start": {
-           "line": 25,
-           "col": 8
-          },
-          "end": {
-           "line": 28,
-           "col": 5
-          }
-         }
-        ]
+        }
        }
       }
      },
      "sourceContext": {
       "file": "specs/pokeapi.yaml",
       "start": {
-       "line": 22,
+       "line": 23,
        "col": 4
       },
       "end": {
-       "line": 26,
-       "col": 33
+       "line": 29,
+       "col": 4
       }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/pokeapi.yaml",
-       "start": {
-        "line": 22,
-        "col": 4
-       },
-       "end": {
-        "line": 26,
-        "col": 33
-       }
-      }
-     ]
+     }
     },
     "Pokemon": {
      "tuple": {
@@ -1223,261 +553,86 @@ const AppSpec = `{
         "primitive": "INT",
         "attrs": {
          "json_tag": {
-          "s": "height",
-          "sourceContext": {
-           "file": "specs/pokeapi.yaml",
-           "start": {
-            "line": 30,
-            "col": 24
-           },
-           "end": {
-            "line": 30,
-            "col": 32
-           }
-          },
-          "sourceContexts": [
-           {
-            "file": "specs/pokeapi.yaml",
-            "start": {
-             "line": 30,
-             "col": 24
-            },
-            "end": {
-             "line": 30,
-             "col": 32
-            }
-           }
-          ]
+          "s": "height"
          }
         },
         "opt": true,
         "sourceContext": {
          "file": "specs/pokeapi.yaml",
          "start": {
-          "line": 29,
-          "col": 8
+          "line": 31,
+          "col": 18
          },
          "end": {
-          "line": 31,
-          "col": 9
+          "line": 32,
+          "col": 8
          }
-        },
-        "sourceContexts": [
-         {
-          "file": "specs/pokeapi.yaml",
-          "start": {
-           "line": 29,
-           "col": 8
-          },
-          "end": {
-           "line": 31,
-           "col": 9
-          }
-         }
-        ]
+        }
        },
        "id": {
         "primitive": "INT",
         "attrs": {
          "json_tag": {
-          "s": "id",
-          "sourceContext": {
-           "file": "specs/pokeapi.yaml",
-           "start": {
-            "line": 32,
-            "col": 24
-           },
-           "end": {
-            "line": 32,
-            "col": 28
-           }
-          },
-          "sourceContexts": [
-           {
-            "file": "specs/pokeapi.yaml",
-            "start": {
-             "line": 32,
-             "col": 24
-            },
-            "end": {
-             "line": 32,
-             "col": 28
-            }
-           }
-          ]
+          "s": "id"
          }
         },
         "opt": true,
         "sourceContext": {
          "file": "specs/pokeapi.yaml",
          "start": {
-          "line": 31,
-          "col": 8
+          "line": 33,
+          "col": 14
          },
          "end": {
-          "line": 33,
-          "col": 9
+          "line": 34,
+          "col": 8
          }
-        },
-        "sourceContexts": [
-         {
-          "file": "specs/pokeapi.yaml",
-          "start": {
-           "line": 31,
-           "col": 8
-          },
-          "end": {
-           "line": 33,
-           "col": 9
-          }
-         }
-        ]
+        }
        },
        "name": {
         "primitive": "STRING",
         "attrs": {
          "json_tag": {
-          "s": "name",
-          "sourceContext": {
-           "file": "specs/pokeapi.yaml",
-           "start": {
-            "line": 34,
-            "col": 24
-           },
-           "end": {
-            "line": 34,
-            "col": 30
-           }
-          },
-          "sourceContexts": [
-           {
-            "file": "specs/pokeapi.yaml",
-            "start": {
-             "line": 34,
-             "col": 24
-            },
-            "end": {
-             "line": 34,
-             "col": 30
-            }
-           }
-          ]
+          "s": "name"
          }
         },
         "opt": true,
         "sourceContext": {
          "file": "specs/pokeapi.yaml",
          "start": {
-          "line": 33,
-          "col": 8
+          "line": 35,
+          "col": 16
          },
          "end": {
-          "line": 35,
-          "col": 1
+          "line": 36
          }
-        },
-        "sourceContexts": [
-         {
-          "file": "specs/pokeapi.yaml",
-          "start": {
-           "line": 33,
-           "col": 8
-          },
-          "end": {
-           "line": 35,
-           "col": 1
-          }
-         }
-        ]
+        }
        }
       }
      },
      "sourceContext": {
       "file": "specs/pokeapi.yaml",
       "start": {
-       "line": 28,
+       "line": 29,
        "col": 4
       },
       "end": {
-       "line": 34,
-       "col": 30
+       "line": 36
       }
-     },
-     "sourceContexts": [
-      {
-       "file": "specs/pokeapi.yaml",
-       "start": {
-        "line": 28,
-        "col": 4
-       },
-       "end": {
-        "line": 34,
-        "col": 30
-       }
-      }
-     ]
+     }
     }
    },
    "sourceContext": {
     "file": "specs/pokeapi.yaml",
     "start": {
-     "line": 6
+     "line": 7,
+     "col": 1
     },
     "end": {
-     "line": 34,
-     "col": 30
-    }
-   },
-   "sourceContexts": [
-    {
-     "file": "specs/pokeapi.yaml",
-     "start": {
-      "line": 6
-     },
-     "end": {
-      "line": 34,
-      "col": 30
-     }
-    }
-   ]
-  }
- },
- "imports": [
-  {
-   "target": "petstore.yaml",
-   "name": {
-    "part": [
-     "Petstore"
-    ]
-   },
-   "sourceContext": {
-    "file": "specs/petdemo.sysl",
-    "start": {
-     "line": 1
-    },
-    "end": {
-     "line": 1,
-     "col": 41
-    }
-   }
-  },
-  {
-   "target": "pokeapi.yaml",
-   "name": {
-    "part": [
-     "PokeAPI"
-    ]
-   },
-   "sourceContext": {
-    "file": "specs/petdemo.sysl",
-    "start": {
-     "line": 2
-    },
-    "end": {
-     "line": 2,
-     "col": 38
+     "line": 7,
+     "col": 44
     }
    }
   }
- ]
+ }
 }`
