@@ -31,7 +31,7 @@ func NewTestServer(t *testing.T, ctx context.Context, createService, cfg interfa
 	return newTestServerImp(t, ctx, createService, cfg, false)
 }
 
-func NewTestServerWithActualDownstreams(t *testing.T, ctx context.Context, createService, cfg interface{}) *TestServer {
+func NewIntegrationTestServer(t *testing.T, ctx context.Context, createService, cfg interface{}) *TestServer {
 	return newTestServerImp(t, ctx, createService, cfg, true)
 }
 

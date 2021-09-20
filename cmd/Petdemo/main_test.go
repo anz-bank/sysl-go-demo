@@ -21,6 +21,7 @@ func TestPetDemo(t *testing.T) {
 		MockResponse(http.StatusOK, map[string]string{"Content-Type": `application/json`}, petstore.Pet("gecko"))
 
 	gatewayTester.Mocks.Pokeapi.GetPokemon.
+		ExpectURLParamID(5).
 		MockResponse(http.StatusOK, map[string]string{"Content-Type": `application/json`}, pokeapi.Pokemon{Name: common.NewString("charmeleon")})
 
 	gatewayTester.GetPetList().

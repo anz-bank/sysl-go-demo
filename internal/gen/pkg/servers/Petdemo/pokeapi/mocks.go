@@ -64,6 +64,12 @@ func (d *GetPokemonMock) ExpectQueryParams(query map[string][]string) *GetPokemo
 	return d
 }
 
+func (d *GetPokemonMock) ExpectURLParamID(id int64) *GetPokemonMock {
+	d.tests = append(d.tests, e2e.ExpectURLParamForInt("id", id))
+
+	return d
+}
+
 func (d *GetPokemonMock) Expect(test e2e.Tests) *GetPokemonMock {
 	d.tests = append(d.tests, test)
 
