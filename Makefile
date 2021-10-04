@@ -5,10 +5,14 @@ SYSLGO_APP.Petdemo = Petdemo
 -include local.mk
 include codegen.mk
 
+.PHONY: clean
 clean:
 	rm -rf internal/gen
-.PHONY: clean
 
+.PHONY: test
 test: gen-all-servers
 	go test -v ./...
-PHONY: .test
+
+.PHONY: integration-test
+integration-test: gen-all-servers
+	go test -v ./... -run '_Integration$$'

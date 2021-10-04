@@ -1,6 +1,6 @@
 module github.com/anz-bank/sysl-go-demo
 
-go 1.14
+go 1.16
 
 require (
 	github.com/anz-bank/sysl-go v0.223.0

@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - [Sysl v0.11.0 or later ](https://sysl.io/docs/install/)
-- Go 1.13
+- Go 1.16 or later
 
 ## Generating the server
 
